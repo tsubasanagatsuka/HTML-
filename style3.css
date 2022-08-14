@@ -1,0 +1,33 @@
+.body {
+  color: red;
+  height: 100px;
+}
+
+p {
+  color: green;
+  font-size: 24px;
+}
+
+.good-message {
+  color: red;
+}
+
+.second-p {
+  color: black;
+  font-size: 30px;
+}
+
+.first-p {
+  color: blue;
+  font-size: 50px;
+}
+
+#third-p {
+  color: blueviolet;
+  font-size: 100px;
+}
+
+.blue {
+  color: blue;
+  font-size: 100px;
+}

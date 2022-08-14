@@ -1,0 +1,455 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>HTML学習用ウェブサイト</title>
+    <link rel="stylesheet" href="style3.css">
+  </head>
+  <body>
+    <h1>
+      これは<span class="blue">見出し</span>です
+    </h1>
+    <p class="first-p">
+      １つ目の段落です
+    </p>
+    <p class="second-p">
+      2つ目の段落です
+    </p>
+    <p id="third-p">
+      3つ目の段落です。<b>この部分は太字になります。</b>
+    </p>
+    <p class="good-message">
+      good
+    </p>
+     <a href="https://www.google.com/">クリックすると、Googleへ移動します。</a>
+  </body>
+</html>
+
+CSSの文法
+HTMLの時と同様に、コードを書きながらCSSの文法を学びます。
+
+HTMLとCSSの関係性についておさらいしよう
+CSSの文法に入る前に、HTMLとCSSの関係性について振り返りましょう。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//587ada37f908a555b8bb8c422e10a6fe.png
+
+CSSファイルをHTMLファイルで読み込むためには、CSSファイルの情報をHTMLのhead要素に記述する必要があります。
+
+head要素からCSSを呼び出せるようにしよう
+本章で新しく作成したstyle3-3.cssを、index3-3.htmlから読み込む設定をします。
+CSSファイルを呼び出すためには、head要素内に以下のような記述をします。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//a721e8837c96f4aebb0b2c22f1162e66.png
+
+新しくでてきたキーワードを一つずつ確認しましょう。
+
+linkリンク要素
+link要素は現在のファイル（HTML）から外部情報（今回であればCSSファイル）を関連付けする際に記載します。
+rel属性、href属性と一緒に使用するのが一般的です。
+
+relレル属性
+rel属性はRelation（関係）の略で、参照先のファイルが現在のファイルとどのような関係であるのかを明らかにします。
+属性値には決められたキーワードを記載します。
+今回は”stylesheet”というキーワードを指定することでCSS（Cascading Style Sheets）を参照することを表している。
+
+hrefエイチレフ属性
+href属性はHyper Referenceの略で、参照先の外部ファイルの場所を明らかにします。
+属性値にはファイルの場所、ファイル名を記載します。
+
+CSSの記述に必要な知識を学ぼう
+CSSの基本的な記述は、下図のようになります。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//b2773e37bc22ff197c71fffc790e9f49.png
+
+それぞれのキーワードを解説します。
+
+セレクタ
+セレクタとは、CSSによる装飾を、どの部分のHTMLに適用するかを選択するための記述です。
+
+プロパティ
+プロパティとはセレクタで指定したHTMLの「何を変えるのか」を選択するための記述です。背景の色や文字の大きさ、要素同士の余白など様々なプロパティが用意されています。
+
+また、複数プロパティがある場合は順序は問いません。
+下の例①と例②は同じコードを意味します。
+
+【例①】
+1
+2
+3
+4
+.body {
+    color: white;
+    height: 100px;
+}
+【例②】
+1
+2
+3
+4
+.body {
+    height: 100px;
+    color: white;
+}
+ 値
+プロパティで設定する内容を決めるための記述です。背景の色を指定するプロパティであれば、値でどのような色にするのかを決めることができます。プロパティと値の間はコロン（ : ）で区切り、値の後にはセミコロン（ ; ）を入力します。
+
+文字の色を指定しよう
+<p>...</p>の文字に色を付けて、CSSの使い方を学びましょう。
+
+文字に色を付けるためには、colorプロパティを使います。
+
+colorカラープロパティ
+colorプロパティは、値によって自由に文字の色を指定することができます。今回はp要素全てを赤色にするので、以下のような記述をします。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//e871d7cd608500deb2259d920889264c.png
+
+colorプロパティの値には、redやblueのように色の名前を指定する他にもカラーコードを指定する方法もあります。カラーコードとは、webページに表示される色を16進数で表したコードのことです。
+redをカラーコードで表記すると#ff0000、blueをカラーコードで表記すると#0000ffとなります。
+
+CSSファイルを編集して、文字の色を指定しましょう
+style3-3.cssに以下のように追記しましょう。
+
+HTML_CSS/3-3/style3-3.css
+1
+2
+3
+p {
+  color: red;
+}
+見本通りに表示されない場合は、以下の可能性があります。確認してみましょう。
+
+値の最後のセミコロン（ ; ）を忘れている
+値の最後がセミコロン（ ; ）ではなく、コロン（ : ）になっている
+スペルミスや打ち間違いがある
+style3-3.cssファイルで、閉じ括弧（ } ）が無い
+ブラウザで確認しましょう
+画面をリロードしてCSSが正しく適用されているか、確認しましょう。以下のように表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//af62e08cb29e1d615cb735324d776da8.png
+
+文字の大きさを指定しよう
+同様に<p>...</p>の文字の大きさを編集して、CSSの使い方を学びましょう。
+
+font-sizeフォント サイズプロパティ
+font-sizeプロパティとは文字の大きさを指定するプロパティです。
+文字の大きさを調整するときに、単位としてpxが頻繁に使用されます。
+
+pxピクセル
+px(ピクセル)とはpixelの略で、簡単にいうとデジタル画面の最小の単位のことです。
+pxの概念は少し複雑なのでここでは省略しますが、気になる人はこちらの記事を参考にしてください。
+
+本章では、よく使用する単位であることを覚えておきましょう。
+
+先ほど記述したコードは以下のように読み解くことができます。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//3988a50c8330bddd5d7350b5b1c47083.png
+
+CSSファイルを編集して、文字の大きさを指定しましょう
+style3-3.cssに以下のように追記しましょう。
+
+HTML_CSS/3-3/style3-3.css
+
+
+文字の大きさを指定しよう
+同様に<p>...</p>の文字の大きさを編集して、CSSの使い方を学びましょう。
+
+font-sizeフォント サイズプロパティ
+font-sizeプロパティとは文字の大きさを指定するプロパティです。
+文字の大きさを調整するときに、単位としてpxが頻繁に使用されます。
+
+pxピクセル
+px(ピクセル)とはpixelの略で、簡単にいうとデジタル画面の最小の単位のことです。
+pxの概念は少し複雑なのでここでは省略しますが、気になる人はこちらの記事を参考にしてください。
+
+本章では、よく使用する単位であることを覚えておきましょう。
+
+先ほど記述したコードは以下のように読み解くことができます。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//3988a50c8330bddd5d7350b5b1c47083.png
+
+CSSファイルを編集して、文字の大きさを指定しましょう
+style3-3.cssに以下のように追記しましょう。
+
+HTML_CSS/3-3/style3-3.css
+1
+2
+3
+4
+p {
+  color: red;
+  font-size: 24px;
+}
+ブラウザで確認しましょう
+画面をリロードしてCSSが正しく適用されているか、確認しましょう。以下のように表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//daa689abf26afa5c8be760cef3a86758.png
+
+見本通りに表示されない場合は、以下の可能性があります。確認してみましょう。
+
+値の最後のセミコロン（ ; ）を忘れている
+値の最後がセミコロン（ ; ）ではなく、コロン（ : ）になっている
+font-sizeのfontとsizeの間がハイフン（ - ）になっていない
+スペルミスや打ち間違いがある
+style3-3.cssファイルで、閉じ括弧（ } ）が無い
+class属性とclassセレクタについて理解しよう
+上記までのステップでは、CSSを修正することによって、<p>...</p>の全ての色と大きさを編集することができました。
+
+しかしながら、下図のように、一部の<p>...</p>のみを装飾したい場合は、どのようにすれば良いでしょうか。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//aad4304157ad26ff8299f021809a40fe.png
+
+そこでclass属性とclassセレクタが登場します。
+
+classクラス属性
+class属性とはHTML要素に対して個別に名前を指定することができる属性です。
+class属性の属性値をclass名といいます。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//a20027b371fc6f89874bfcbdad487044.png
+
+例えば、<p>...</p>に対して"first-message"というclass名を付与する場合は、以下のように記載します。
+
+【例】sample.html
+1
+2
+3
+<p class="first-message">
+  テキストテキストテキスト
+</p>
+CSSではclass名をセレクタと指定して、装飾することができます。
+
+classクラスセレクタ
+HTMLで指定したclass名をCSSのセレクタとして使用することができます。classセレクタを指定する場合は、「.クラス名」の形でCSSファイルに記述します。
+
+【例】sample.css
+1
+2
+3
+.first-message {
+  color: red;
+}
+classセレクタを使うことによって、特定のHTMLだけに装飾をすることができます。
+
+要素を指定して文字の大きさと色を指定しましょう
+先ほどまではp要素すべてが装飾されていました。今回は2つ目の段落だけが装飾されるように、以下の手順でコードを編集していきましょう。
+
+HTMLファイルで、2つ目の段落のp要素にclass名をつける
+CSSファイルで、p要素につけたclass名に対して装飾する
+HTML_CSS/3-3/index3-3.html
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>HTML学習用ウェブサイト</title>
+    <link rel="stylesheet" href="style3-3.css">
+  </head>
+  <body>
+    <h1>
+      これは見出しです
+    </h1>
+    <p>
+      １つ目の段落です
+    </p>
+    <p class="second-message">
+      2つ目の段落です
+    </p>
+    <p>
+      3つ目の段落です。<b>この部分は太字になります。</b>
+    </p>
+     <a href="https://www.google.com/">クリックすると、Googleへ移動します。</a>
+  </body>
+</html>
+style3-3.cssに以下のように追記しましょう。
+
+style3-3.css
+
+p {
+  font-size: 24px;
+  color: red;
+}
+.second-message {
+  color: orange;
+  font-size: 12px;
+}
+ブラウザで確認しましょう
+画面をリロードして、CSSが正しく適用されているか確認しましょう。以下のように表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//7f233a1551f24098406ca66a2078d295.png
+
+見本通りに表示されない場合は、以下の可能性があります。確認してみましょう。
+
+style3-3.cssファイルのクラス名指定で、.second-messageに打ち間違いやスペルミスがある
+style3-3.cssファイルのクラス名指定で、.second-messageの先頭のドット（ . ）が抜けている
+colorやorangeなどにスペルミスがある
+style3-3.cssファイルで、閉じ括弧（ } ）が無い
+id属性とidセレクタについて理解しよう
+class属性とclassセレクタの他にも、特定の要素を装飾する方法があります。
+それは、id属性とidセレクタです。
+
+idアイディー属性
+id属性とは特定のHTML要素のみに対して、名前を指定することができる属性です。
+id属性の属性値をid名といいます。
+
+id属性には「1つのページ内で、同じid名を複数のHTML要素に付与しない」という慣例が存在します。ブラウザに関連する他の言語が、想定した挙動にならない場合があるためです。
+したがって、「1つのページ内には、同じid名を持つHTML要素が存在しない」ように命名しましょう。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//d3b7b79cc2bd5b78b754fb26b6d33d82.png
+
+例えば、<p>...</p>に対して"third-message"というid名を付与する場合は、以下のように記載します。
+
+【例】sample.html
+1
+2
+3
+<p id="third-message">
+  テキストテキストテキスト
+</p>
+CSSではid名をセレクタと指定して、装飾することができます。
+
+idアイディーセレクタ
+HTMLで指定したid名をCSSのセレクタとして使用することができます。idセレクタを指定する場合は、「#id名」の形でCSSファイルに記述します。
+
+【例】sample.css
+1
+2
+3
+#third-message {
+  color: blue;
+}
+idセレクタを使うことによって、特定のHTMLだけに装飾をすることができます。
+
+要素を指定して文字の大きさと色を指定しましょう
+class属性と同様にして、以下の手順でコードを編集しましょう。
+
+HTMLファイルで、3つ目の段落のp要素にid名をつける
+CSSファイルで、p要素につけたid名に対して装飾する
+HTML_CSS/3-3/index3-3.html
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>HTML学習用ウェブサイト</title>
+    <link rel="stylesheet" href="style3-3.css">
+  </head>
+  <body>
+    <h1>
+      これは見出しです
+    </h1>
+    <p>
+      １つ目の段落です
+    </p>
+    <p class="second-message">
+      2つ目の段落です
+    </p>
+    <p id="third-message">
+      3つ目の段落です。<b>この部分は太字になります。</b>
+    </p>
+     <a href="https://www.google.com/">クリックすると、Googleへ移動します。</a>
+  </body>
+</html>
+style3-3.cssに以下のように追記しましょう。
+
+style3-3.css
+
+p {
+  font-size: 24px;
+  color: red;
+}
+.second-message {
+  color: orange;
+  font-size: 12px;
+}
+#third-message {
+  color: blue;
+}
+ブラウザで確認しましょう
+画面をリロードして、CSSが正しく適用されているか確認しましょう。
+以下のように表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//3d2753b1060c85516bf7c044cc2f05c0.png
+
+見本通りに表示されない場合は、以下の可能性があります。確認してみましょう。
+
+style3-3.cssファイルのid名指定で、#third-messageに打ち間違いやスペルミスがある
+style3-3.cssファイルのid名指定で、#third-messageの先頭のシャープ（ # ）が抜けている
+colorやblueなどにスペルミスがある
+style3-3.cssファイルで、閉じ括弧（ } ）が無い
+テキストの一部にCSSを指定する方法を学ぼう
+テキストの一部だけに、CSSを指定することもできます。そのためによく使用する要素が、span要素です。
+
+ spanスパン要素
+span要素は、テキストの一部だけを装飾するために使用される要素です。部分的にテキストのフォント調整、文字色・背景色を変更するのに頻繁に使用されます。
+
+ここでは、見出しのテキストの一部分を、青色に変えます。以下のようにindex3-3.htmlに追記しましょう。行うことは、
+
+「見出し」の前後を<span>...</span>で囲む
+span要素にblueクラスを設定する
+CSSファイルで、blueクラスにプロパティを設定する
+です。
+
+部分的にCSSを指定したい箇所にspan要素を記述しましょう
+まずは、以下のようにindex3-3.htmlに追記しましょう。
+
+HTML_CSS/3-3/index3-3.html
+ 
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>HTML学習用ウェブサイト</title>
+    <link rel="stylesheet" href="style3-3.css">
+  </head>
+  <body>
+    <h1>
+      これは<span class="blue">見出し</span>です
+    </h1>
+    <p>
+      １つ目の段落です
+    </p>
+    <p class="second-message">
+      2つ目の段落です
+    </p>
+    <p id="third-message">
+      3つ目の段落です。<b>この部分は太字になります。</b>
+    </p>
+     <a href="https://www.google.com/">クリックすると、Googleへ移動します。</a>
+  </body>
+</html>
+部分的にCSSを指定しましょう
+続いて、style3-3.cssに以下のように追記しましょう
+
+style3-3.css
+
+p {
+  font-size: 24px;
+  color: red;
+}
+.second-message {
+  color: orange;
+  font-size: 12px;
+}
+#third-message {
+  color: blue;
+}
+.blue {
+  color: blue;
+}
+ブラウザで確認しましょう
+画面をリロードしてCSSが正しく適用されているか、確認しましょう。以下のように表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//decf3404552ceb0a75ab5b5165eb1085.png
+
+見本通りに表示されない場合は、以下の可能性があります。確認してみましょう。
+
+index3-3.htmlファイルで、正しく<span>...</span>で囲めていない
+index3-3.htmlファイルまたはstyle3-3.cssファイルで、クラス名のblueをスペルミスしている
+style3-3.cssファイルのクラス名指定で、.blueの先頭のドット（ . ）が抜けている
+style3-3.cssファイルで、閉じ括弧（ } ）が無い
+練習問題
+本章で学んだことを問題を解きながら復習しましょう。問題を解く際は、カリキュラムを見てはいけません。思い出すという行動をすることで、より一層の知識定着が可能となります。
+
+不明点は次のカリキュラムに進む前に復習し、満点をとれるまで解き直しましょう。それまで次のカリキュラムに進まないようにしてください。以降のカリキュラムは、これまで学んだ内容が身についている前提で進むからです。
+
+【練習問題 HTMLとCSS】最低限のCSSの文法を学ぼう
+
