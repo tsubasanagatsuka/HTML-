@@ -1,0 +1,618 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>LESSON3-4</title>
+    <link rel="stylesheet" href="style4.css">
+  </head>
+  <body>
+    <header>
+      買い物リスト
+    </header>
+    <div class="contents">
+      <div class="ben1">
+        手に職
+        </div>
+        <div class="ben2">
+          あなたの手で
+        </div>
+        <div class="ben3">
+          自由
+        </div>
+      <div class="top-content">
+        スーパーで買うもの
+        <ul class="lists">
+          <li class="list">じゃがいも</li>
+          <li class="list">人参</li>
+          <li class="list featured">豚肉 ★タイムセールの時間を狙う！</li>
+          <li class="list">玉ねぎ</li>
+        </ul>
+      </div>
+      <div class="bottom-content">
+        ドラッグストアで買うもの
+        <ul class="lists">
+          <li class="list">歯磨き粉</li>
+          <li class="list">洗剤</li>
+          <li class="list">目薬</li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+    </footer>
+    <div class="parents">
+      この要素は入れ子構造です。私が親要素です。
+      <p class="child">
+        この文章は<br>
+        複数行になっているので<br>
+        縦に大きくなります
+      </p>
+      <h1 class="child-2">
+        私は子要素です
+      </h1>
+    </div>
+  </body>
+</html>
+
+はじめに
+概要
+これまでの学習で、基本的なHTMLの記述と、CSSの使い方は学びました。しかし、普段私達が目にしているようなWebページを作成するためには、より複雑なHTMLの構造を学ぶ必要があります。
+
+本章では、あらかじめ用意したファイルにコードを書きながら、より多くのHTMLの構造を学びます。最終的には、以下のようなWebページの完成を目指します。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//064f5069cac0d672f2a050a6ca33615f.png
+
+目的
+HTMLのレイアウト構造を理解すること
+ブロックレベル要素とインライン要素を理解すること
+親要素と子要素の関係を理解すること
+リスト構造のHTML要素を理解すること
+事前準備
+必要なフォルダを用意しよう
+本章で使用するフォルダを用意しましょう。
+
+専用のフォルダを用意しましょう
+3-4というフォルダをHTML_CSSフォルダの中に作成しましょう。HTML_CSSフォルダが以下のような構成になっていることを確認します。
+
+ HTML_CSS
+ 3-2
+ index3-2.html
+ 3-3
+ index3-3.html
+ style3-3.css
+ 3-4
+必要なファイルを用意しよう
+必要なフォルダが作成できましたら、次はファイルを作成していきましょう。
+
+テキストエディタでフォルダを開きましょう
+先ほど作成した3-4フォルダをVSCodeで開きましょう。
+
+HTMLファイルを用意し、以下のように記述しましょう
+3-4フォルダのなかにindex3-4.htmlというファイルを作成し、以下のように記述しましょう。こちらが今回作業するHTMLの雛形です。
+
+index3-4.html
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>LESSON3-4</title>
+    <link rel="stylesheet" href="style3-4.css">
+  </head>
+  <body>
+  </body>
+</html>
+CSSファイルを用意しましょう
+3-4フォルダのなかにstyle3-4.cssというファイルを作成しましょう。
+
+ フォルダが正しい構成になっているか確認しましょう
+ここまでの作業で、HTML_CSSフォルダが以下のような構成になっていることを確認します。
+
+ HTML_CSS
+ 3-2
+ index3-2.html
+ 3-3
+ index3-3.html
+ style3-3.css
+ 3-4
+ index3-4.html
+ style3-4.css
+VSCode上ではこのような構成になっています。
+https://tech-master.s3.amazonaws.com/uploads/curriculums//4fd6c59cdef1891f8beac70a61e28c2b.jpeg
+
+HTMLの構造
+HTMLはhead要素とbody要素から成り立つことは、これまでのカリキュラムで学びました。本章では、body要素内で、その他の要素がどのような構造をとるのか詳しく学びます。
+
+HTMLのレイアウト構造を学ぼう
+HTMLを実装する際に、以下の3点を常に意識する必要があります。
+
+①HTMLとは左上に重力のある積み木である
+
+下図のように、HTMLは積み木の集合体であると言えます。また、左上に重力があるので、何も遮るものがなければ積み木（=要素）は左上から収まっていきます。
+
+
+
+②入れ子構造になっている
+
+HTMLはすでに作成した要素の中に、さらに要素を追加することができます。これを入れ子構造といいます。
+
+具体例として、以下のようなコードを書いたときをイメージしましょう。
+
+（例）
+
+<div class="parents">
+  この要素は入れ子構造です。私が親要素です。
+  <p class="child">
+    この文章は<br>
+    複数行になっているので<br>
+    縦に大きくなります
+  </p>
+  <p class="child">
+    私は子要素です
+  </p>
+</div>
+※div要素については後に詳しく説明します。ここではただブロックを作る要素だと認識しておいてください。
+
+上記のコードでは、div要素のなかにさらにp要素が2つ存在しています。このように、要素の中に要素を追加していくことで、１つの要素に様々な情報を追加していくことができます。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//9889e2937ea6ed4e513fd17ffab4b700.png
+
+③HTMLの要素は中身に応じて高さが変動する
+積み木の一つ一つは中身によって高さの変わる箱であると言えます。
+
+先ほどのコードをブラウザで表示させると以下のようになります。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//7ab7ae17a3f7733bce72846dbd170bf9.png
+
+上記の画像をみると、文章が１行のp要素より、複数行のp要素の方が大きな要素となっています。
+このように、HTMLの要素は中身の要素に応じて縦方向に大きさが変動します。
+
+ブロックレベル要素とインライン要素について学ぼう
+HTML要素は積み木であることを学びました。しかしながら、積み木とならない要素も存在します。つまり、HTMLの構造をつくらない要素があります。
+
+積み木となる要素とそうでない要素は、ブロックレベル要素とインライン要素の2種類に分けられます。
+
+ブロックレベル要素
+HTMLの積み木を構成する要素です。1つのブロックレベル要素が、1つのHTMLにおける積み木として存在します。特徴は以下のとおりです。
+
+横幅いっぱいで表示される四角い箱である
+箱の中にテキストなどが表示される
+中身に関係なく横幅いっぱいになる
+高さは中身によって変わる
+縦並びで表示される
+インライン要素
+インライン要素とは、テキストの一部として扱われる要素です。基本的にブロック要素の中で使用され、「テキストの一部を太文字にする」など、主に文字の装飾などに使用します。特徴は以下のとおりです。
+
+中身のテキスト量の分だけ横幅が広がる
+高さは中身によって変わる
+連続すると横並びで表示される
+動画でブロックレベル要素とインライン要素について学びましょう
+ブロックレベル要素とインライン要素の考え方は少々複雑です。動画で全体像を理解しましょう。
+
+
+親要素と子要素
+親要素と子要素について学ぼう
+要素が入れ子構造になると、「親要素」と「子要素」という言葉で要素間の関係性を表します。
+
+親要素
+親要素とはある要素の１つの上位の階層にある要素です。
+
+子要素
+子要素とは親要素から見てその下位階層にある要素です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//0dbc26a8d7a12c45a66e721185e4d503.png
+
+親子構造を含んだHTMLを記述しよう
+親子構造を含んだHTMLを記述していきます。
+その前に、親子構造を作る際によく使われる、要素について解説します。
+
+headerヘッダー要素
+header要素とはWebページ最上部のヘッダー専用のブロックレベル要素です。head要素と混同しがちなので気をつけてください。
+
+divディブ要素
+divはDivisionの略で「特定の意味が無い」要素です。汎用的に様々な用途で使うことができ、レイアウトを作成する際に重宝されます。classセレクタを付与して使用します。今後、最も使用する頻度が高いブロックレベル要素です。
+
+footerフッター要素
+footer要素とはWebページ最下部のフッター専用のブロックレベル要素です。
+
+上記の要素を用いて、HTMLを記述していきましょう。
+
+HTMLファイルに以下の記述をしましょう
+ここからは実際にコードを書きながら、HTMLのレイアウトについての理解を深めましょう。以下のようにindex3-4.htmlを記述してください。
+
+index3-4.html
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>LESSON3-4</title>
+    <link rel="stylesheet" href="style3-4.css">
+  </head>
+  <body>
+    <header>
+      買い物リスト
+    </header>
+    <div class="contents">
+      <div class="top-content">
+        スーパーで買うもの
+      </div>
+      <div class="bottom-content">
+        ドラッグストアで買うもの
+      </div>
+    </div>
+    <footer>
+    </footer>
+  </body>
+</html>
+ブラウザを確認しましょう
+ブラウザでindex3-4.htmlを開きましょう。以下のように表示されていれば成功です。
+https://tech-master.s3.amazonaws.com/uploads/curriculums//55181699506b88097d8b98f3750f1138.png
+
+見本通りに正しく表示されない場合は、index3-4.htmlを開くことができていない（別のファイルを参照している）可能性があります。確認しましょう。
+
+サイズを調整しよう
+まずは、動画でこれから学習する内容を理解しましょう。
+
+ 動画でHTML要素の大きさを設定する方法について学びましょう
+
+ここでは、作成したHTML要素に大きさを指定します。
+大きさを指定するプロパティとして、ここではheightプロパティとwidthプロパティを使用します。
+
+heightハイトプロパティ
+要素の高さを指定することができるプロパティです。
+
+widthウィズスプロパティ
+要素の幅を指定することができるプロパティです。
+
+%パーセント
+%（パーセント）とは、親要素のサイズを100%としたとき子要素のサイズを親要素に対して何%で設定するかを決められる指定方法です。
+
+【例】%を使用した例
+1
+2
+3
+4
+/* 親要素がwidth100pxの場合、widthは50pxとなる -->*/
+.hoge {
+  width: 50%; => 50px
+}
+それでは、実際にコードを記述しながら、要素の大きさの編集方法を学びましょう。
+
+要素の大きさを指定しましょう
+style3-4.cssを以下のように記述しましょう。
+
+style3-4.css
+
+header{
+  height: 50px;
+  width: 80%;
+  font-size: 25px;
+}
+.contents{
+  width: 500px;
+}
+.top-content{
+  height: 250px;
+  width: 500px;
+}
+
+.bottom-content{
+  height: 250px;
+  width: 500px;
+}
+
+footer{
+  height: 50px;
+  width: 80%;
+}
+ブラウザを確認しましょう
+画面をリロードして、HTMLが正しく表示されているか、確認しましょう。以下のように表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//79485847546bca526776930c09544c81.png
+
+現状では、CSSを一切指定していないので、全ての要素が左上に寄っている状態です。
+
+見本通りに正しく表示されない場合は、以下について確認しましょう。
+
+style3-4.cssは3-4フォルダに正しく配置されているか
+値の最後のセミコロン（ ; ）を忘れている
+値の最後がセミコロン（ ; ）ではなく、コロン（ : ）になっている
+heightやwidthにスペルミスや打ち間違いがある
+style3-4.cssファイルで、閉じ括弧（ } ）が無い箇所がある
+親要素と子要素の背景色を指定しよう
+HTMLの要素をブラウザ上で確認しやすいように、それぞれの要素に対して色をつけます。
+要素の背景色を指定するプロパティとして、background-colorプロパティを使用しましょう。
+
+background-colorバックグラウンド カラープロパティ
+background-colorプロパティは、背景色を指定する際に使用します。値で自由に色を指定することができます。
+
+要素の背景色を指定しましょう
+style3-4.cssを以下のように記述しましょう。
+
+style3-4.css
+
+header{
+  height: 50px;
+  width: 80%;
+  font-size: 25px;
+  background-color: lightgray;
+}
+.contents{
+  width: 500px;
+}
+
+.top-content{
+  height: 250px;
+  width: 500px;
+  background-color: lightcoral;
+}
+
+.bottom-content{
+  height: 250px;
+  width: 500px;
+  background-color: lightblue;
+}
+
+footer{
+  height: 50px;
+  width: 80%;
+  background-color:lightgray;
+}
+ブラウザを確認しましょう
+画面をリロードしてCSSが正しく適用されているか、確認しましょう。以下のように表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//79f07269ca8c2ee7862bf3ffb9f2ec32.png
+
+これで各要素に背景色を指定することができました。
+
+見本通りに正しく表示されない場合は、以下について確認しましょう。
+
+値の最後のセミコロン（ ; ）を忘れている
+値の最後がセミコロン（ ; ）ではなく、コロン（ : ）になっている
+background-colorにスペルミスや打ち間違いがある
+background-colorがハイフン（ - ）ではなく、アンダースコア（ _ ）になっている
+style3-4.cssファイルで、閉じ括弧（ } ）が無い箇所がある
+箇条書きリストのHTMLを作成しよう
+ここから以下のようなリスト表示をするためのHTML要素を学びます。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//df365daad66ca648355c883482f9b67d.png
+
+リスト表示をするためには、ul要素とli要素を用います。
+
+ulユーエル要素
+ulはUnordered Listの略で、順序のないリストを示すブロックレベル要素です。li要素と組み合わせて使用します。
+
+liエルアイ要素
+li要素はList Itemの略で、リストの項目を示すブロックレベル要素です。ul要素の子要素として記述します。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//e9f4679de623ae2140ad1a2dbc7113d5.png
+
+それではHTMLを記述します。
+
+リスト表示ができるように編集しましょう
+以下のようにindex3-4.htmlを記述してください。
+
+index3-4.html
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LESSON3-4</title>
+  <link rel="stylesheet" href="style3-4.css">
+  </head>
+  <body>
+    <header>
+      買い物リスト
+    </header>
+    <div class="contents">
+      <div class="top-content">
+        スーパーで買うもの
+        <ul class="lists">
+          <li class="list">じゃがいも</li>
+          <li class="list">人参</li>
+          <li class="list">豚肉 ★タイムセールの時間を狙う！</li>
+          <li class="list">玉ねぎ</li>
+        </ul>
+      </div>
+      <div class="bottom-content">
+        ドラッグストアで買うもの
+        <ul class="lists">
+          <li class="list">歯磨き粉</li>
+          <li class="list">洗剤</li>
+          <li class="list">目薬</li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+    </footer>
+  </body>
+</html>
+ブラウザで確認しましょう
+画面をリロードしてCSSが正しく適用されているか、確認しましょう。以下のように表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//ce5f000e4b54755166a598ddda3faecf.png
+
+見本通りに正しく表示されていない場合は、以下の可能性があります。確認しましょう。
+
+index3-4.htmlを開くことができていない
+li要素がul要素の中にない
+これで、リスト構造のHTMLを表示させることができました。次はCSSファイルを編集して、先ほど表示させたリスト構造のHTMLを装飾しましょう。リスト構造の装飾には、list-styleプロパティを用います。
+
+list-styleリスト スタイルプロパティ
+リストのスタイルを変更することができます。li要素の箇条書きのマークを変更したりすることができます。値としてsquareを指定すると箇条書きの黒点を■で表現できます。値としてnoneを指定していると、箇条書きの黒点を消すことができます。
+
+リストの見た目を編集しましょう
+リスト構造のHTMLにCSSを指定します。今回は箇条書きの黒点を消しましょう。
+style3-4.cssを以下のように編集しましょう。
+
+style3-4.css
+
+header{
+  height: 50px;
+  width: 80%;
+  font-size: 25px;
+  background-color: lightgray;
+}
+.contents{
+  width: 500px;
+}
+.top-content{
+  height: 250px;
+  width: 500px;
+  background-color: lightcoral;
+}
+
+.bottom-content{
+  height: 250px;
+  width: 500px;
+  background-color: lightblue;
+}
+
+.list{
+  list-style: none;
+}
+
+footer{
+  height: 50px;
+  width: 80%;
+  background-color:lightgray;
+}
+ブラウザを確認しましょう
+画面をリロードして確認しましょう。以下のように表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//80fbc7902fae5f86c5f4b65be7c55881.png
+
+箇条書きの黒点がなくなりました。
+
+見本通りに正しく表示されていない場合は、以下の間違いの可能性があります。確認しましょう。
+
+値の最後のセミコロン（ ; ）を忘れている
+値の最後がセミコロン（ ; ）ではなく、コロン（ : ）になっている
+list-styleにスペルミスや打ち間違いがある
+値のnoneにスペルミスがある
+style3-4.cssファイルで、閉じ括弧（ } ）が無い箇所がある
+リスト構造の背景色の一部を変更しましょう
+リストのうち、一箇所だけ背景色を変更しましょう。追加でCSSを追加したい部分だけに、新たにclassを追加しましょう。半角スペースで区切ることによって、1つの要素が複数のクラスを持つことができます。
+以下のようにindex3-4.htmlを記述してください。
+
+index3-4.html
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LESSON3-4</title>
+  <link rel="stylesheet" href="style3-4.css">
+  </head>
+  <body>
+    <header>
+      買い物リスト
+    </header>
+    <div class="contents">
+      <div class="top-content">
+        スーパーで買うもの
+        <ul class="lists">
+          <li class="list">じゃがいも</li>
+          <li class="list">人参</li>
+          <li class="list featured">豚肉 ★タイムセールの時間を狙う！</li>
+          <li class="list">玉ねぎ</li>
+        </ul>
+      </div>
+      <div class="bottom-content">
+        ドラッグストアで買うもの
+        <ul class="lists">
+          <li class="list">歯磨き粉</li>
+          <li class="list">洗剤</li>
+          <li class="list">目薬</li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+    </footer>
+  </body>
+</html>
+続いて、以下のようにstyle.cssを記述しましょう。
+
+style3-4.css
+
+header{
+  height: 50px;
+  width: 80%;
+  font-size: 25px;
+  background-color: lightgray;
+}
+.contents{
+  width: 500px;
+}
+.top-content{
+  height: 250px;
+  width: 500px;
+  background-color: lightcoral;
+}
+
+.bottom-content{
+  height: 250px;
+  width: 500px;
+  background-color: lightblue;
+}
+
+.list{
+  list-style: none;
+}
+
+.lists{
+  width: 300px;
+}
+
+.featured{
+  background-color: yellow;
+}
+
+footer{
+  height: 50px;
+  width: 80%;
+  background-color:lightgray;
+}
+ブラウザを確認しましょう
+画面をリロードして確認しましょう。以下のように表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//6a26952917f0228312f685ea11544cc2.png
+
+「豚肉 ★タイムセールの時間を狙う！」の背景色を黄色に指定できました。
+
+見本通りに正しく表示されない場合は、以下について確認しましょう。
+
+値の最後のセミコロン（ ; ）を忘れている
+値の最後がセミコロン（ ; ）ではなく、コロン（ : ）になっている
+featuredにスペルミスや打ち間違いがある
+style3-4.cssファイルで、閉じ括弧（ } ）が無い
+練習問題
+本章で学んだことを問題を解きながら復習しましょう。問題を解く際は、カリキュラムを見てはいけません。思い出すという行動をすることで、より一層の知識定着が可能となります。
+
+不明点は次のカリキュラムに進む前に復習し、満点をとれるまで解き直しましょう。それまで次のカリキュラムに進まないようにしてください。以降のカリキュラムは、これまで学んだ内容が身についている前提で進むからです。
+
+【練習問題 HTMLとCSS】HTMLの構造を学ぼう
+
+この章の振り返り
+本章では、HTMLの構造について学びました。特に、親子構造や、ブロックレベル要素とインライン要素などは、その根幹となる知識です。
+
+次のカリキュラムからは、この積み上げた要素の位置を編集する方法を学びます。
+
+要点チェック
+ HTMLとは左上に重力のある積み木である。
+ HTMLはすでに作成した要素の中に、さらに要素を追加することができる。
+ HTMLの要素の高さは、中身の要素の大きさによって変動する。
+ HTML要素はブロックレベル要素とインライン要素の2種類に分けられる。
+ 要素が入れ子構造になると、「親要素」と「子要素」という言葉で要素間の関係性を表す。
+ リスト表示をする際は、ul要素とli要素を用いる。
+このカリキュラムの理解度を教えてください
+ボタンを押していただくと次へ進めます
+<< 前のカリキュラム
+次のカリキュラム >>
+お疲れさまです！
+HTMLとCSSはここまでです。
+SNSで学習の進み具合を友達にシェアしてみましょう！
+
+Twitterでシェア
+Facebookでシェア

@@ -1,0 +1,61 @@
+.child {
+  color: red;
+  background-color: chartreuse;
+}
+.child-2 {
+  color: blue;
+  background-color: blueviolet;
+}
+
+header{
+  height: 50px;
+  width: 80%;
+  font-size: 25px;
+  background-color: aqua;
+}
+
+.contents {
+  color: blue;
+  background-color: blue;
+  width: 500px;
+}
+
+.top-content {
+  font-size: 20px;
+  background-color: brown;
+  height: 250px;
+  width: 500px;
+}
+
+.bottom-content {
+  font-size: 15px;
+  background-color: bisque;
+  height: 250px;
+  width: 500px;
+}
+
+footer {
+  height: 50px;
+  width: 80%;
+  background-color: beige;
+}
+.lists{
+  background-color: azure;
+  list-style: none;
+}
+
+.featured{
+  background-color: yellow;
+}
+
+.ben1{
+  color: red;
+}
+
+.ben2{
+  color: red;
+}
+
+.ben3{
+  color: red;
+}
