@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>LESSON3-6</title>
+    <link rel="stylesheet" href="style6.css">
+  </head>
+  <body>
+    <div class="side-bar">
+    </div>
+    <div class="main">
+      <div class="main-header"></div>
+      <div class="main-content">
+        <div class="messages">
+          <div class="message-1">
+            <div class="message-name">田中太郎</div>
+            <div class="message-body">メッセージだよ</div>
+          </div>
+          <div class="message-2">
+            <div class="message-name">鈴木次郎</div>
+            <div class="message-body">メッセージ確認しました</div>
+          </div>
+          <div class="message-3">
+            <div class="message-name">鈴木次郎</div>
+            <div class="message-body">田中太郎さん、メッセージありがとう。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+ボックスモデル
+HTML/CSSでは、ブロックレベル要素を積み木や箱として考えます。このことをCSSのボックスモデルと言います。
+
+ボックスモデル
+ボックスは以下の図のような、「content」、枠をつける「border」と、内側の余白「padding」、外側の余白「margin」から成り立っています。それぞれ、上下左右の４辺に分けることができ、個別にCSSを適用し、幅や色などを指定できます。
+
+
+
+本章では、この３つのプロパティ(border, margin, padding)の使い方を順番に学びます。
+
+borderを学ぼう
+borderプロパティを用いて、要素の枠を作成します。
+
+borderボーダープロパティ
+要素の境界線の幅や色を変更できます。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//40f2db873ad8346dfce5e380455437d2.png
+
+border: 太さ スタイル 色;とすることで、ボーダーの太さ・スタイル・色をまとめて指定できます。スタイルには、solid（1本線）やdouble（2本線）などがあります。
+
+CSSの記述を編集して、枠線を作成しましょう
+以下のようにstyle3-6.cssを編集しましょう。
+
+style3-6.css
+
+body{
+ height: 800px;
+ display: flex;
+}
+
+.side-bar{
+ width: 280px;
+ background-color: lightgray;
+}
+
+.main{
+ width: 1200px;
+}
+
+.main-header{
+ height: 120px;
+ background-color: lightblue;
+}
+
+.main-content{
+ height: 680px;
+ background-color:lightpink;
+}
+
+.messages{
+}
+
+.message{
+ border: 1px solid white;
+}
+
+.message-name{
+ font-size: 16px;
+}
+
+.message-body{
+ font-size: 24px;
+}
+ブラウザで確認しましょう
+リロードして、以下のようにブラウザが表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//ab71d4fde8856a55ffc6018a0db63b30.png
+
+paddingで余白の作り方を学ぼう
+paddingプロパティを用いて、要素の内側の余白を作成します。
+
+paddingパディングプロパティ
+箱の内側に余白を作成します。余白の大きさは、pxで指定することができます。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//5c20c891045645eb1d886f987362f7fe.png
+
+paddingは上下左右4方向に指定できますが、指定方法は以下のとおりです。
+
+指定方法	説明
+padding: 1px;	[上下左右]の内側の余白をまとめて1pxに指定
+padding: 1px 1px;	[上下][左右]の内側の余白をそれぞれ1pxに指定
+padding: 1px 1px 1px;	[上][左右][下]の内側の余白をそれぞれ1pxに指定
+padding: 1px 1px 1px 1px;	[上][右][下][左]の内側の余白をそれぞれ1pxに指定
+CSSの記述を編集して、内側に余白を作りましょう
+以下のようにstyle3-6.cssを編集しましょう。
+
+style3-6.css
+
+body{
+ height: 800px;
+ display: flex;
+}
+
+.side-bar{
+ width: 280px;
+ background-color: lightgray;
+}
+
+.main{
+ width: 1200px;
+}
+
+.main-header{
+ height: 120px;
+ background-color: lightblue;
+}
+
+.main-content{
+ height: 680px;
+ background-color:lightpink;
+}
+
+.messages{
+ padding: 32px;
+}
+
+.message{
+ padding: 20px 40px;
+ border: 1px solid white;
+}
+
+.message-name{
+ font-size: 16px;
+}
+
+.message-body{
+
+ font-size: 24px;
+}
+ブラウザで確認しましょう
+リロードして、以下のようにブラウザが表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//4ecd82284f892d6202ef8a701035b538.png
+
+marginで余白の作り方を学ぼう
+marginプロパティを用いて、要素の外側の余白を作成します。
+
+marginマージンプロパティ
+箱の外側に余白を作成します。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//bdf7928b6094e4c68fff6bbeb05bab03.png
+
+paddingと同様に、pxで指定でき、上下左右4方向に指定方法も以下のとおりです。
+
+指定方法	説明
+margin: 1px;	[上下左右]の余白をまとめて1pxに指定
+margin: 1px 1px;	[上下][左右]の余白をそれぞれ1pxに指定
+margin: 1px 1px 1px;	[上][左右][下]の余白をそれぞれ1pxに指定
+margin: 1px 1px 1px 1px;	[上][右][下][左]の余白をそれぞれ1pxに指定
+またmargin-top、margin-bottom、margin-left、margin-rightを用いることで、各一方向のみの指定ができます。autoという値を用いると、余白を自動で算出することもできます。
+
+CSSの記述を編集して、要素の外側に余白を作りましょう
+以下のようにstyle3-6.cssを編集しましょう。
+
+style3-6.css
+
+body{
+ height: 800px;
+ display: flex;
+}
+
+.side-bar{
+ width: 280px;
+ background-color: lightgray;
+}
+
+.main{
+ width: 1200px;
+}
+
+.main-header{
+ height: 120px;
+ background-color: lightblue;
+}
+
+.main-content{
+ height: 680px;
+ background-color:lightpink;
+}
+
+.messages{
+ padding: 32px;
+}
+
+.message{
+ padding: 20px 40px;
+ border: 1px solid white;
+ margin-bottom: 28px;
+}
+
+.message-name{
+ margin-bottom: 10px;
+ font-size: 16px;
+}
+
+.message-body{
+ margin-bottom: 10px;
+ font-size: 24px;
+}
+今回はmargin-bottomを用いて下方向の余白を指定しました。
+
+ブラウザで確認しましょう
+リロードして、以下のようにブラウザが表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//04feab529866f4c3ece787bf7a3239a5.png
+
+このように、ボックスモデルの考え方を用いることで、枠線・内側の余白・外側の余白を設定することができます。しかし、これらは全てブロックレベル要素のみ設定できます。インライン要素には、設定できません。
+
+※厳密には、インライン要素をボックスモデルとして扱う手段はありますが、本章では割愛します。
+
+marginとpaddingの違いについて学ぼう
+margin, padding共に要素間の幅を取るためのプロパティです。では、この2つはどのように使い分けるのでしょうか。
+
+端的に言えば、以下の図のように要素の背景色を含めて余白を取りたいときはpadding, 背景色を含めたくない場合はmarginを利用します。どのようなデザインにしたいかで、どちらを採用するのか決めます。
+
+
+
+上記の図では、"sample"というテキストがコンテンツにあたります。paddingを使用することによって、当該要素の背景色が大きく広がります。
+
