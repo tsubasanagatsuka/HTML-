@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>LESSON3-7</title>
+    <link rel="stylesheet" href="style7.css">
+  </head>
+  <body>
+    <header>ヘッダー</header>
+    <div class="main">
+      メイン
+      <div class="parent">
+        パレント
+        <div class="child">
+          チャイルド
+        </div>
+      </div>
+    </div>
+    <footer>フッター</footer>
+  </body>
+</html>
+
+ブロックの位置指定
+要素の配置方法を学ぼう
+実装に入る前に、要素を特定の位置に配置するプロパティについて学びましょう。
+要素をブラウザの特定の位置に配置したい場合には、positionプロパティを使用します。
+
+positionポジションプロパティ
+positionプロパティとは指定した要素の配置方法を決めることができるプロパティです。
+配置方法としては以下のような方法があります。
+
+値との組み合わせ	説明
+position: relative;	現在の位置を基準に相対的な位置を決める
+position: absolute;	特定の地点を基準に絶対的な位置を決める（デフォルトの基準はウィンドウ左上）
+position: fixed;	要素を指定した位置に固定する
+また、positionプロパティはtop、bottom、left、rightというプロパティとセットで使うことが多いです。
+
+top/right/bottom/leftトップ/ライト/ボトム/レフトプロパティ
+positionプロパティを指定した要素に、基準（上、下、右、左）の距離を指定することができます。
+
+絶対位置を学ぼう
+ブラウザの左上を基準としてとる位置のことを、絶対位置といいます。
+
+動画で要素の配置方法を学びましょう。
+動画で、position: absolute;の使い方を学びましょう。
+
+
+それでは、青色の要素を絶対位置に配置し、要素を移動しましょう。
+
+絶対位置に配置するようにコードを編集しましょう
+style3-7.cssを以下のように編集しましょう。
+
+style3-7.css
+
+header{
+  height: 80px;
+  width: 100%;
+  background-color: lightgray;
+}
+
+.main{
+  color: white;
+}
+
+.parent{
+  width :360px;
+  height: 360px;
+  background-color: pink;
+  margin: 40px;
+}
+
+.child{
+  width :200px;
+  height: 200px;
+  background-color: skyblue;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+footer{
+  height: 80px;
+  width: 100%;
+  background-color:lightgray;
+}
+ブラウザで確認しましょう
+リロードして、以下のようにブラウザが表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//c507c69d92b385fbc4d2d8f0192e57b5.png
+
+他の要素の配置を無視し、左上に配置されました。topプロパティとleftプロパティにそれぞれ40pxを指定しているので、その分余白があります。
+
+このように、絶対位置では、HTMLの構造を無視した要素配置がされます。
+
+相対位置への要素の配置を学ぼう
+先ほどは子要素を絶対位置へ配置しました。次は親要素を相対位置へ配置します。
+ある要素が、他の要素との関係の上に成り立つ位置のことを相対位置といいます。
+
+親要素にposition: relative;を設定すると、子要素の基準は親要素の左上となり、相対位置をとります。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//b07b1162e9b915c5a9ff572002459802.png
+
+動画で相対位置を学びましょう。
+動画で、position: relative;の使い方を学びましょう。
+
+
+子要素が相対位置をとるように編集しましょう
+style3-7.cssを以下のように編集しましょう。
+
+style3-7.css
+
+header{
+  height: 80px;
+  width: 100%;
+  background-color: lightgray;
+}
+
+.main{
+  color: white;
+}
+
+.parent{
+  width :360px;
+  height: 360px;
+  background-color: pink;
+  margin: 40px;
+  position: relative;
+}
+
+.child{
+  width :200px;
+  height: 200px;
+  background-color: skyblue;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+footer{
+  height: 80px;
+  width: 100%;
+  background-color:lightgray;
+}
+ブラウザで確認しましょう
+リロードして、以下のようにブラウザが表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//79aaa2ea73ef12bf487d310dfe08e859.png
+
+親要素にposition:relative;を指定したことで、position:absolute;を指定した子要素の基準位置が、親要素になりました。その結果、子要素の位置の記述が変わり、配置が移動しました。
+
