@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>チームアウトプット</title>
+    <link rel="stylesheet" href="style8-1.css">
+  </head>
+  <body>
+    <header>
+      エンジニアになるメリット
+    </header>
+    <div class="contents">
+      <div class="benefit1">
+        <img src="output/output-image1.png" alt="sample" class="output-img">
+        <p>手に職をつけることができる</p>
+      </div>
+      <div class="benefit2">
+        あなたの手でプロダクトを生み出せる
+      </div>
+      <div class="benefit3">
+        自由な働き方を実現できる
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+問題.1
+事前準備
+finderを開き、ホームフォルダ内にoutput_htmlcssというフォルダを作成しましょう。すでに以前作成していれば、それを再利用して構いません。その後、output_htmlcssフォルダ内にoutput7.htmlという名前のファイルを作成しましょう。output7.htmlに、以下のコードを記述します。
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>チームアウトプット</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      エンジニアになるメリット
+    </header>
+    <div class="contents">
+      <div class="benefit1">
+        手に職をつけることができる
+      </div>
+      <div class="benefit2">
+        あなたの手でプロダクトを生み出せる
+      </div>
+      <div class="benefit3">
+        自由な働き方を実現できる
+      </div>
+    </div>
+  </body>
+</html>
+続いて、同フォルダ内のstyle.cssについて以下のように編集してください。
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* これより上は、ブラウザの見た目を整えるための設定 */
+
+header{
+  height: 50px;
+  width: 80%;
+  font-size: 25px;
+  background-color: lightgray;
+}
+
+.contents{
+  height: 500px;
+  width: 80%;
+  background-color: gray;
+}
+
+.benefit1{
+  height: 250px;
+  width: 300px;
+  background-color: lightcoral;
+}
+
+.benefit2{
+  height: 250px;
+  width: 300px;
+  background-color: lightblue;
+}
+
+.benefit3{
+  height: 250px;
+  width: 300px;
+  background-color: lightgreen;
+}
+続いて、問題で使用する画像をダウンロードします。以下の「ダウンロード」をクリックして画像をダウンロードしましょう。
+
+ダウンロード
+
+ダウンロードすると、「output.zip」というzipファイルが確認できます。こちらを解凍して、画像ファイルをoutput_htmlcssフォルダ内に配置しましょう。
+（解凍は、output.zipをFinderなどでクリックするとできます。解凍すると、画像ファイルを配置できるようになります。）
+
+output_htmlcss
+output-image1.png
+output-image2.png
+output-image3.png
+上記のようなディレクトリ構造になっていれば成功です。
+
+設問
+上記のhtml/cssを編集し、以下の画像のような表示になるようにしましょう。
+画像の高さは全て200pxとします。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//75704c696c254856239121931240502d.png
+
+回答
+1
+解答を貼り付けてください。
+1
+# コードブロックは上のように```の直後に言語名を指定してください。
+模範解答
+模範解答
+output7.html
+
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>チームアウトプット</title>
+  </head>
+  <body>
+    <header>
+      エンジニアになるメリット
+    </header>
+    <div class="contents">
+      <div class="benefit1">
+        <img src="output-image1.png" class="output_image">
+        <p>手に職をつけることができる</p>
+      </div>
+      <div class="benefit2">
+        <img src="output-image2.png" class="output_image">
+        <p>あなたの手でプロダクトを生み出せる</p>
+      </div>
+      <div class="benefit3">
+        <img src="output-image3.png" class="output_image">
+        <p>自由な働き方を実現できる</p>
+      </div>
+    </div>
+  </body>
+</html>
+style.css
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* これより上は、ブラウザの見た目を整えるための設定 */
+
+header{
+  height: 50px;
+  width: 80%;
+  font-size: 25px;
+  background-color: lightgray;
+}
+
+.contents{
+  height: 500px;
+  width: 80%;
+  background-color: gray;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.benefit1{
+  height: 250px;
+  width: 300px;
+  background-color: lightcoral;
+}
+
+.benefit2{
+  height: 250px;
+  width: 300px;
+  background-color: lightblue;
+}
+
+.benefit3{
+  height: 250px;
+  width: 300px;
+  background-color: lightgreen;
+}
+
+.output_image{
+  height: 200px;
+}
+解説
+まずhtmlですが、画像を表示するためにはimgタグを利用します。imgタグのsrc属性に、画像のありかを指定します。
+img要素はインライン要素なので、そのままだと文字が横に並んでしまいます。そこで、文字をp要素で囲うことで段落を作っています。
+
+CSSは画像の高さを指定するために模範解答のように定義しています。
+
+採点方法
+全て指示画像通りになっていたら10点。それ以外は0点。
+
+この回答の点数を入力してください。
+0
+点配点10点
