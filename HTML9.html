@@ -1,0 +1,542 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>LESSON3-9</title>
+    <link rel="stylesheet" href="style9.css">
+  </head>
+  <body>
+    <div class="contact">
+      <form class="contact-form">
+        <input type="text" placeholder="NAME" class="name-form">
+        <textarea name="message" placeholder="MESSAGE" class="message-form"></textarea>
+        <input type="submit" value="SEND" class="send">
+      </form>
+    </div>
+  </body>
+</html>
+
+概要
+本章では、以下のWebページを作成しながら、一般的な入力フォームの実装方法を学びます。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//8bbf1646349d360685fd73dbe127d02c.png
+
+上記の制作物を作成するために、
+
+２種類の入力フォームを表示する
+送信ボタンを表示する
+の2点を順番に実装します。
+
+目的
+form要素の使い方を理解すること
+formに使用する要素の使い方を理解すること
+事前準備
+本章で使用するフォルダとファイルを用意しましょう。
+
+必要なフォルダを用意しよう
+これまでと同様にHTML_CSSフォルダの中に新しくフォルダを作成しましょう。
+
+専用のフォルダを用意しましょう
+3-9フォルダを、HTML_CSSフォルダの中に作成しましょう。
+
+必要なファイルを用意しよう
+必要なフォルダが作成できましたら、次はファイルを作成していきましょう。
+
+テキストエディタでフォルダを開きましょう
+ここは前章までと同じです。先ほど作成した3-9フォルダをVSCodeで開きましょう。
+
+HTMLファイルを用意して編集しましょう
+3-9フォルダのなかにindex3-9.htmlというファイルを作成し、以下のように記述しましょう。
+
+index3-9.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>LESSON3-9</title>
+    <link rel="stylesheet" href="style3-9.css">
+  </head>
+  <body>
+    <div class="contact">
+    </div>
+  </body>
+</html>
+CSSファイルを用意して編集しましょう
+3-9フォルダのなかにstyle3-9.cssというファイルを作成し、以下のように記述しましょう。
+
+style3-9.css
+1
+2
+3
+4
+5
+6
+7
+.contact {
+  height: 800px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+centerとは子要素を上下中央に揃えるための、align-itemsの値です。
+子要素はまだ記述されていませんが、後ほど追加します。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//ab367fb682f13906962cb30915cb89e1.png
+
+フォルダが正しい構成になっているか確認しましょう
+ここまでの作業で、HTML_CSSフォルダが以下のような構成になっていることを確認しましょう。
+
+ HTML_CSS
+一部省略
+ 3-9
+ index3-9.html
+ style3-9.css
+準備が正しくできているか、ブラウザで確認しましょう。
+index3-9.htmlをブラウザで確認しましょう。
+以下のように、一面にグレーが表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//4e28a39a432cd5c96dbc78d8dd6587f5.png
+
+フォームの実装方法
+ここからフォームの作成を学びます。
+ここでいうフォームとは、ユーザーが情報を入力する入力欄のことです。これを今から実装していきます。
+
+フォームの入力欄を作成しよう
+form要素を用いて、フォームの大枠の要素を作成します。
+
+formフォーム要素
+form要素とは、フォーム関連要素の集まりを表すブロック要素です。
+この<form>...</form>のなかに、入力フォームや送信フォームを作成します。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//1a677dbc13365705b71aa054066dadd2.png
+
+form要素をHTMLファイルに記述しましょう
+以下のようにindex3-9.htmlを編集しましょう。
+
+index3-9.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>LESSON3-9</title>
+    <link rel="stylesheet" href="style3-9.css">
+  </head>
+  <body>
+    <div class="contact">
+      <form class="contact-form">
+      </form>
+    </div>
+  </body>
+</html>
+作成したform要素にCSSを適応しましょう
+style3-9.cssに以下のようにCSSを記述してください。
+
+style3-9.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+.contact {
+  height: 800px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form {
+  width: 600px;
+}
+テキスト入力欄を作成しよう
+<form>...</form>の中に記述する要素を、順番に学びます。文字を入力する部分は、input要素を用います。
+
+inputインプット要素
+フォームの入力欄や実行ボタンなどを作成することができるインライン要素です。
+input要素にはtype属性という設定があり、それを指定することによって様々な種類のフォーム部品を作り出すことができます。
+
+type属性	用途
+text	１行のテキスト入力欄を作成します
+checkbox	チェックボックスを複数作成することができます
+radio	複数の中から１つしか選択できない、ラジオボタンを作ります
+submit	送信ボタンを作ります
+placeholderプレースホルダー属性
+入力フォームに仮の文字列を入れることができます。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//04c6826a74eaf90e618643ac70c577ec.png
+
+display:block;ディスプレイ ブロック
+インライン要素は、横に並んで表示されます。
+そこで、CSSにdisplay:block;を使用するとインライン要素をブロックレベル要素に変換でき、縦に並べる事ができます。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//1e94b3bfbce67ebb4410e6c338b9d1a1.png
+
+もしdisplayプロパティについて不安がある場合は、こちらから復習しましょう。
+
+テキスト入力欄を実装しましょう
+以下のようにindex3-9.htmlを編集しましょう。
+
+index3-9.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>LESSON3-9</title>
+    <link rel="stylesheet" href="style3-9.css">
+  </head>
+  <body>
+    <div class="contact">
+      <form class="contact-form">
+        <input type="text" placeholder="NAME" class="name-form">
+      </form>
+    </div>
+  </body>
+</html>
+作成した入力欄を編集しましょう
+CSSファイルを編集して、先ほど作成した入力フォームを整えましょう。
+以下のようにstyle3-9.cssを記述してください。
+
+style3-9.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+.contact {
+  height: 800px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form {
+  width: 600px;
+}
+
+.name-form {
+  width: 500px;
+  padding: 15px;
+  border: 1px solid white;
+  display: block;
+}
+ブラウザで確認しましょう
+ブラウザを再読み込みして、以下のように表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//9782bcdafeb672d6b7837a46111536d8.png
+
+複数行の入力欄を実装しよう
+これまで実装したinput要素は、一行の入力欄でした。次は、複数行が入力できる入力欄を実装しましょう。複数行の入力欄は、textarea要素を用います。
+
+textareaテキストエリア要素
+複数行のテキスト入力欄を作成するインライン要素です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//d3731d602cb28446a3481e325418d91c.png
+
+HTMLを編集して複数行のテキスト入力欄を実装しましょう
+複数行の記述をすることができる入力フォームを実装します。
+以下のようにindex3-9.htmlを編集しましょう。
+またtextarea要素には、終了タグが必要となるので注意しましょう。
+
+index3-9.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>LESSON3-9</title>
+    <link rel="stylesheet" href="style3-9.css">
+  </head>
+  <body>
+    <div class="contact">
+      <form class="contact-form">
+        <input type="text" placeholder="NAME" class="name-form">
+        <textarea name="message" placeholder="MESSAGE" class="message-form"></textarea>
+      </form>
+    </div>
+  </body>
+</html>
+ここではname属性、placeholder属性、クラス名を指定しました。name属性はフォームに入力して送信するデータの名前を設定します。これはサーバーとのやり取りに関係するものになるため、後のWebアプリケーション開発のカリキュラムで説明します。
+
+CSSを用いて、作成した入力欄を編集しましょう
+以下のようにstyle3-9.cssを編集してください。
+
+style3-9.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+.contact {
+  height: 800px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form {
+  width: 600px;
+}
+
+.name-form {
+  margin-bottom: 10px;
+}
+
+.message-form {
+  height: 150px;
+  margin-bottom: 30px;
+}
+
+.name-form,
+.message-form {
+  width: 500px;
+  padding: 15px;
+  border: 1px solid white;
+  display: block;
+}
+ブラウザで確認しましょう
+リロードして、以下のようにブラウザが表示されていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//98323b113bea3f14cef29cc25f07c01a.png
+
+送信ボタンを実装しよう
+ここからはフォームの送信ボタンを実装します。
+先ほど使用したinput要素のtype属性に、submitを設定することで、送信ボタンとすることができます。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//4ba832874521f87d21a5ef85846174c6.png
+
+また、”SEND”という送信ボタンの文字は、value属性で指定できます。
+
+valueバリュー属性
+フォームの送信をした時に、どのような値を送信するのかを決めることができます。送信ボタンに限っては、value属性で指定した文字が、送信ボタンに表示されます。
+
+送信ボタンを実装しましょう
+以下のようにindex3-9.htmlを編集しましょう。
+
+index3-9.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>LESSON3-9</title>
+    <link rel="stylesheet" href="style3-9.css">
+  </head>
+  <body>
+    <div class="contact">
+      <form class="contact-form">
+        <input type="text" placeholder="NAME" class="name-form">
+        <textarea name="message" placeholder="MESSAGE" class="message-form"></textarea>
+        <input type="submit" value="SEND" class="send">
+      </form>
+    </div>
+  </body>
+</html>
+CSSを編集して、作成した送信ボタンを装飾しましょう
+以下のようにstyle3-9.cssを編集してください。
+
+style3-9.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+.contact {
+  height: 800px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form {
+  width: 600px;
+}
+
+.name-form {
+  margin-bottom: 10px;
+}
+
+.message-form {
+  height: 150px;
+  margin-bottom: 30px;
+}
+
+.name-form,
+.message-form {
+  width: 500px;
+  padding: 15px;
+  border: 1px solid white;
+  display: block;
+}
+
+.send {
+  width: 200px;
+  padding: 15px;
+  border: 1px solid white;
+  color: white;
+  background-color: orange;
+  display: block;
+}
+ブラウザで確認しましょう
+リロードして、以下のようにブラウザが表示されていれば成功です。
+https://tech-master.s3.amazonaws.com/uploads/curriculums//a0bb3d6586afb07ecea413fc2646e94d.png
+
+要素を中央に配置しよう
+現状では、親要素に対して子要素が左寄りになってしまっています。これを中央に配置するようにしましょう。
+https://tech-master.s3.amazonaws.com/uploads/curriculums//d105802114d746028d6cbf47cd6f1955.png
+
+この場合は、marginプロパティを用いて要素を中央配置します。
+marginプロパティの値に 0 autoを指定すると親要素に対して子要素の左右の余白を均等に割り振ることができ、要素を中央に配置することができます。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//f39f723c86ec277efaa2cda85cb4febc.png
+
+要素を中央に配置しましょう

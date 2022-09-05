@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>チームアウトプット</title>
+    <link rel="stylesheet" href="style9-1.css">
+  </head>
+  <body>
+    <header>
+      エンジニアになるメリット
+    </header>
+    <div class="contents">
+      <h1>お問い合わせ</h1>
+      <form class="contact-form">
+        <input type="text" placeholder="NAME" class="name_form">
+        <input type="text" placeholder="EMAIL" class="email_form">
+        <textarea name="message" placeholder="MESSAGE-FORM" class="message_form"></textarea>
+        <input type="submit" value="SEND" class="send">
+      </form>
+    </div>
+  </body>
+</html>
+
+
+TECH::MASTER
+カリキュラム検索
+学習計画を更新する
+お困りの方はこちら
+終了まで0日
+
+コース
+ID:38004 長塚 翼
+
+長塚 翼
+【練習問題 HTMLとCSS】フォームの実装について学ぼう - 自己採点ページ
+問題.1
+事前準備
+finderを開き、ホームフォルダ内にoutput_htmlcssというフォルダを作成しましょう。すでに以前作成していれば、それを再利用して構いません。その後、output_htmlcssフォルダ内にoutput8.htmlという名前のファイルを作成しましょう。output8.htmlに、以下のコードを記述します。
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>チームアウトプット</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      エンジニアになるメリット
+    </header>
+    <div class="contents">
+      <h1>お問い合わせ</h1>
+      <form class="contact-form">
+        <input type="text" class="name_form">
+        <input type="text" class="email_form">
+        <input name="message" class="message_form">
+        <input type="text" class="send">
+      </form>
+    </div>
+  </body>
+</html>
+続いて、同フォルダ内のstyle.cssについて以下のように編集してください。
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+html, body, h1 {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* これより上は、ブラウザの見た目を整えるための設定 */
+
+header{
+  height: 50px;
+  width: 80%;
+  font-size: 25px;
+  background-color: lightgray;
+}
+
+.contents{
+  width: 80%;
+  background-color: gray;
+}
+
+h1 {
+  text-align: center;
+}
+
+.contact-form {
+  width: 600px;
+  margin: 0 auto;
+  padding: 0 0 20px 0;
+}
+
+.name_form,
+.email_form,
+.message_form {
+  width: 500px;
+  margin: 0 auto 10px;
+  padding: 15px;
+  border: 1px solid white;
+  display: block;
+}
+
+.message_form {
+  height: 150px;
+}
+
+.send {
+  width: 200px;
+  margin: 0 auto;
+  padding: 15px;
+  border: 0;
+  background-color: #c90926;
+  color: white;
+  display: block;
+}
+設問
+準備したHTMLが不完全です。ブラウザで確認した上で、
+以下の画像のように、正しいフォームとして機能するようにHTMLを修正しましょう。
+
+なお実際にブラウザで確認すると、グレー枠外に生じる余白があります。こちらは仕様のため、問題はありません。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//59f64c55dca717d72d28ab9160dce8ac.png
+
+回答
+1
+解答を貼り付けてください。
+1
+# コードブロックは上のように```の直後に言語名を指定してください。
+模範解答
+模範解答
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>チームアウトプット</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      エンジニアになるメリット
+    </header>
+    <div class="contents">
+      <h1>お問い合わせ</h1>
+      <form class="contact-form">
+        <input type="text" placeholder="NAME" class="name_form">
+        <input type="text" placeholder="EMAIL" class="email_form">
+        <textarea name="message" placeholder="MESSAGE" class="message_form"></textarea>
+        <input type="submit" value="SEND" class="send">
+      </form>
+    </div>
+  </body>
+</html>
+※今回style.cssの書き替えはありません。
+
+解説
+書き替えた部分は、formタグ内の4つの要素にあります。（ハイライト部分）
+class name_formとemail_formがついたinput要素についてはplaceholder属性に画像の通りの文字を入れます。
+次のinput要素ですが、複数行を入力するものとなっているので、input要素ではなくtextarea要素に変更します。この時、閉じタグを追加するのを忘れないようにしましょう。
+最後のinput要素は送信ボタンなので、type属性をsubmitにしvalue属性としてSENDという文字を指定します。
+
+採点方法
+合計10点。submitのinput要素は完答で4点、それ以外の要素については誤答で-2点、最低0点。
+
+この回答の点数を入力してください。
+0
+点配点10点
