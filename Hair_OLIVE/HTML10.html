@@ -1,0 +1,719 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style10.css">
+    <title>Hair OLIVE</title>
+  </head>
+  <body>
+    <header>
+    </header>
+
+    <div class="contents">
+      <div class="first-view">1
+        <!-- 『トップ画像』を表示する -->
+      </div>
+      <div class="upper-content">2
+        <!-- 『新着情報』を表示する -->
+      </div>
+      <div class="middle-content">3
+        <!-- 『スタイリスト紹介』を表示する -->
+      </div>
+      <div class="bottom-content">4
+        <!-- 『フォーム』を表示する -->
+      </div>
+    </div>
+
+    <footer>
+    </footer>
+  </body>
+</html>
+
+概要
+本章から、「Hair OLIVE」というサロンのWebページを作成します。以下が完成形です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//01d4ebfcefa8e15869d84f58c8f701a5.png
+
+これまで学んだ知識を活用しながら、よく見かけるデザインのWebページを実装していきます。
+
+本章ではWebページの土台を実装します。
+
+目的
+これまで学んだ知識を活用して、Webページの土台を作り上げること
+事前準備
+Webページ作成のためのフォルダとファイルの準備をします。
+
+必要なフォルダを用意しよう
+本章で使用するフォルダをHTML_CSSフォルダに作成しましょう。
+
+専用のフォルダを用意しましょう
+2章~9章までと同様に、HTML_CSSフォルダの中に専用のフォルダを作成します。「Hair_OLIVE」という名前で新しくフォルダを作成しましょう。
+
+作成できたら、以下のようなフォルダ配置になります。
+
+HTML_CSS
+　一部省略
+ Hair_OLIVE
+必要なファイルを用意しよう
+本章で使用するファイルを作成しましょう。
+
+テキストエディタでフォルダを開きましょう
+先ほど作成したHair_OLIVEフォルダをVSCodeで開きましょう。
+
+HTMLファイルを用意して編集しましょう
+Hair_OLIVEフォルダの中で、index.htmlファイルを作成し、以下のように編集してください。
+
+index.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Hair OLIVE</title>
+  </head>
+  <body>
+  </body>
+</html>
+CSSファイルを用意しましょう
+Hair_OLIVEフォルダの中で、style.cssファイルを作成しましょう。
+
+フォルダが正しい構成になっているか確認しましょう
+ここまでの作業で、HTML_CSSフォルダが以下のような構成になっていることを確認します。
+
+ HTML_CSS
+一部省略
+ Hair_OLIVE
+ index.html
+ style.css
+リセットCSSについて学ぼう
+各ブラウザは固有のCSSがデフォルトで指定されています。
+このデフォルトのCSSの影響で、自分で書いたCSSが本来意図しない表示になることがあります。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//cbaf4a2357d00c7b9fd79286da4f4baa.png
+
+ブラウザがデフォルトで持っているCSSを打ち消すために、リセットCSSというCSSを使用します。
+
+リセットCSSシーエスエス
+リセットCSSとは、各ブラウザにデフォルトで設定されているCSSを打ち消す役割をもったCSSです。
+
+リセットCSSを記述しましょう
+style.cssに以下を記述しましょう。
+
+style.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+/* リセットCSS */
+body {
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+ul,li {
+  padding: 0;
+  margin: 0;
+}
+Webページの構造
+ここからは実際にコードを書きながら、Webページを作成していきます。
+一部新しい知識も登場しますが、ほとんどの作業が今まで学んだ内容です。わからない箇所は随時、カリキュラムに戻って復習するようにしましょう。
+
+Webページを作る際は、大枠から作っていくことが鉄則です。本カリキュラムでは、Webページの土台が完成するところまで、実装を進めていきます。
+
+HTMLの大枠を作成しよう
+今回作成するページは、上からヘッダー、コンテンツ、フッターという大きく3構造に分けて作ります。
+<body>...</body>のなかに、大枠のHTMLをそれぞれ作成しましょう。
+
+HTMLファイルを編集し、大枠の要素を作成しましょう
+以下のようにindex.htmlを記述してください。
+
+index.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+<!DOCTYPE HTML>
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Hair OLIVE</title>
+  </head>
+  <body>
+    <header>
+    </header>
+
+    <div class="contents">
+      <div class="first-view">
+        <!-- 『トップ画像』を表示する -->
+      </div>
+      <div class="upper-content">
+        <!-- 『新着情報』を表示する -->
+      </div>
+      <div class="middle-content">
+        <!-- 『スタイリスト紹介』を表示する -->
+      </div>
+      <div class="bottom-content">
+        <!-- 『フォーム』を表示する -->
+      </div>
+    </div>
+
+    <footer>
+    </footer>
+  </body>
+</html>
+viewportを意識した大きさの指定をしよう
+CSSを用いて、先ほど作成したHTML要素の大きさを指定します。
+ただし今回は、ブラウザで表示されている領域（viewport）を考慮した実装をします。
+
+viewportビューポート
+viewportとはブラウザで表示されている領域を表します。
+例えば、PCのブラウザなどでは、ブラウザウインドウの表示領域がviewportになります。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//348bfe477e73c5ba7186a9ddc1f1cac2.png
+
+viewportを考慮した実装を行うことで、要素の大きさが画面サイズに応じて変化します。
+例えば、トップ画像にvhを使用することで、以下のように変化させることができます。
+https://tech-master.s3.amazonaws.com/uploads/curriculums//12fbe2bab54fe8078d3b6625f553cebc.gif
+
+vhブイエイチ
+vh（viewport height）は、viewportの高さ（height）に対する割合のことを指します。1vhと指定した場合は、ブラウザで表示されている高さの1%です。
+
+【例】
+1
+2
+3
+4
+/* ブラウザで表示されている高さが、1000pxなら */
+.hoge {
+  height: 10vh; => 100px
+}
+vwブイダブリュー
+vw（viewport width）は、viewportの幅（width）に対する割合のことを指します。1vwと指定した場合は、ブラウザで表示されている幅の1%です。
+
+【例】
+1
+2
+3
+4
+/* ブラウザで表示されている幅が、1200pxなら */
+.hoge {
+  width: 10vw; => 120px
+}
+CSSを編集しましょう
+ここでは、トップ画像を画面サイズに応じて変化させたいのでvhを用い、その他は高さを一定に保ちたいのでpxを用いることにします。
+
+以下のようにstyle.cssを編集してください。
+
+style.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+/* リセットCSS */
+body {
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+ul,li {
+  padding: 0;
+  margin: 0;
+}
+
+/* ヘッダー */
+header {
+  height: 50px;
+}
+
+/* first-viewクラスからbottom-contentクラスまでの要素の親要素 */
+.contents {
+}
+
+.first-view{
+  height: 60vh;
+}
+
+/* 新着情報 */
+.upper-content{
+  height: 450px;
+}
+
+/* スタイリスト紹介 */
+.middle-content{
+  height: 450px;
+}
+
+/* フォーム */
+.bottom-content {
+  height: 800px;
+}
+
+/* フッター */
+footer {
+  height: 50px;
+}
+要素に背景色を指定してHTML構造を確認しよう
+これまでの作業によって、要素が正しく作成できているかどうかを確認します。
+background-colorプロパティを用いて、背景色を要素へ指定しましょう。
+
+CSSを編集し、要素に背景色を指定しましょう
+以下のようにstyle.cssを編集しましょう。
+
+style.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+/* リセットCSS */
+body {
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+ul,li {
+  padding: 0;
+  margin: 0;
+}
+
+/* ヘッダー */
+header {
+  height: 50px;
+  background-color: #f0f0f0;
+}
+
+/* first-viewクラスからbottom-contentクラスまでの要素の親要素 */
+.contents {
+  background-color: white;
+}
+
+.first-view{
+  height: 60vh;
+  background-color: pink;
+}
+
+/* 新着情報 */
+.upper-content{
+  height: 450px;
+  background-color: aqua;
+}
+
+/* スタイリスト紹介 */
+.middle-content{
+  height: 450px;
+  background-color: aquamarine;
+}
+
+/* フォーム */
+.bottom-content {
+  height: 800px;
+  background-color:lightgreen;
+}
+
+/* フッター */
+footer {
+  height: 50px;
+  background-color: #f0f0f0;
+}
+ブラウザで確認しましょう
+リロードして、以下のような表示であれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//46d9a1643b3b3b1201ff518da120f200.gif
+
+要素と要素の幅を調節しよう
+paddingプロパティとmarginプロパティを用いて、要素間の幅を調節します。
+
+CSSファイルを編集し、要素間の幅を調節しましょう
+以下のようにstyle.cssを編集しましょう。
+
+style.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+/* リセットCSS */
+body {
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+ul,li {
+  padding: 0;
+  margin: 0;
+}
+
+/* ヘッダー */
+header {
+  height: 50px;
+  background-color: #f0f0f0;
+}
+
+/* first-viewクラスからbottom-contentクラスまでの要素の親要素 */
+.contents {
+  background-color: white;
+}
+
+.first-view{
+  height: 60vh;
+  background-color: pink;
+}
+
+/* 新着情報 */
+.upper-content{
+  height: 450px;
+  background-color: aqua;
+  margin: 0 160px;
+}
+
+/* スタイリスト紹介 */
+.middle-content{
+  height: 450px;
+  background-color: aquamarine;
+  margin: 0 160px;
+}
+
+/* フォーム */
+.bottom-content {
+  height: 800px;
+  background-color:lightgreen;
+  margin: 0 160px;
+}
+
+/* フッター */
+footer {
+  height: 50px;
+  background-color: #f0f0f0;
+}
+ブラウザで確認しましょう
+リロードして、以下のような表示であれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//301904a501be8059c542298344dbf0ee.gif
+
+実装に不要な記述を削除しましょう
+background-colorプロパティにより先ほど追加した背景色は、webページ作成には不要な記述なので、削除しておきましょう。
+
+style.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+/* リセットCSS */
+body {
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+ul,li {
+  padding: 0;
+  margin: 0;
+}
+
+/* ヘッダー */
+header {
+  height: 50px;
+  background-color: #f0f0f0;
+}
+
+/* first-viewクラスからbottom-contentクラスまでの要素の親要素 */
+.contents {
+  background-color: white;
+}
+
+.first-view{
+  height: 60vh;
+}
+
+/* 新着情報 */
+.upper-content{
+  height: 450px;
+  margin: 0 160px;
+}
+
+/* スタイリスト紹介 */
+.middle-content{
+  height: 450px;
+  margin: 0 160px;
+}
+
+/* フォーム */
+.bottom-content {
+  height: 800px;
+  margin: 0 160px;
+}
+
+/* フッター */
+footer {
+  height: 50px;
+  background-color: #f0f0f0;
+}
