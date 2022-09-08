@@ -1,0 +1,1631 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style11.css">
+    <title>Hair OLIVE</title>
+  </head>
+  <body>
+    <header>
+      <div class="heading">
+        <h1 class="title">Hair OLIVE</h1>
+      </div>
+      <div class="navbar">
+        <ul class="nav-lists">
+          <li>サロンガイド</li>
+          <li>メニュー</li>
+          <li>スタッフ一覧</li>
+          <li>ギャラリー</li>
+          <li>アクセス</li>
+          <li>ブログ</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="contents">0
+      <div class="first-view">1
+        <img src="images/hero.jpg" alt="トップ面" class="top-image">
+        <!-- 『トップ画像』を表示する -->
+      </div>
+      <div class="upper-content">2
+        <h2 class="heading-name">新着情報</h2>
+        <ul class="messages">
+          <!-- 『新着情報』を表示する -->
+          
+          <li class="message">
+            <div class="message-date">2019/10/03</div>
+            <div>うれしい<b>ポイントアップキャンペーン</b></div>
+          </li>
+
+          <li class="message">
+            <div class="message-date">2019/09/27</div>
+            <div>2020年成人式 ご予約承ります</div>
+          </li>
+            
+          <li class="message">
+            <div class="message-date">2018/10/03</div>
+            <div>うれしい<b>ポイントアップキャンペーン</b></div>
+          </li>
+
+          <li class="message">
+            <div class="message-date">2018/09/27</div>
+            <div>2019年成人式 ご予約承ります</div>
+          </li>
+        </ul>
+      </div>
+      <div class="middle-content">
+        <!-- 『スタイリスト紹介』を表示する -->
+        <h2 class="heading-name">スタイリスト紹介</h2>
+        <ul class="stylist-list">
+          <li>
+            <img src="images/staff1.jpg" alt="staff1" class="stylist-image">
+            <h4 class="stylist-name">鈴木</h4>
+          </li>
+          <li>
+            <img src="images/staff2.jpg" alt="staff2" class="stylist-image">
+            <h4 class="stylist-name">佐藤</h4>
+          </li>
+          <li>
+            <img src="images/staff3.jpg" alt="staff3" class="stylist-image">
+            <h4 class="stylist-name">山田</h4>
+          </li>
+        </ul>
+      </div>
+      <div class="bottom-content">4
+        <!-- 『フォーム』を表示する -->
+        <form class="contact-form">
+          <h2 class="heading-name">メールで予約</h2>
+          <input type="text" placeholder="name" class="small-field">
+          <input type="text" placeholder="e-mail" class="small-field">
+          <textarea placeholder="message" class="large-field"></textarea>
+          <input type="submit" value="SEND" class="send">
+        </form>
+      </div>
+    </div>
+
+    <footer>5
+      <p>Copyright(C) Hair OLIVE ALL RIGHTS RESERVED.</p>
+    </footer>
+  </body>
+</html>
+
+本章では、前章で作成した土台の要素の中身を実装し、Webページが完成するところまで作り上げます。
+
+現状をおさらいしましょう。
+前章では以下の手順でWebページの大枠を作成しました。
+
+必要なHTML要素を記述する
+viewportを考慮した大きさを指定する
+作成した要素に背景色を指定して、これまでの実装が正しく行われているかを確認する
+要素間の余白を調節する
+不要な背景色の記述を削除する
+その結果、以下の画像のようなHTML要素が作成できています。見た目が異なる場合は、前章を見直しましょう。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//7d24232e307e8ce02c61809ac603241e.png
+
+目的
+Webページを完成させること
+ヘッダーの実装
+これから最上部のヘッダー部分を実装します。
+タイトルとナビゲーションバーを順に実装していきましょう。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//b25a606511141e9b48a51b6a6aea474b.png
+
+これを作成するために、
+
+タイトルとナビゲーションバーのための要素をそれぞれ作成する
+CSSのFlexBoxを用いて、作成した2つの要素を横並びにする
+作成した要素に、タイトルとナビゲーションバーの情報を記述する
+の順に実装を進めます。
+
+ヘッダーに含まれる要素を横並びにしよう
+タイトルとナビゲーションバーのブロックを作成し、横並びにしましょう。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//a2419739542d86c5e5eca68fb805436a.png
+
+HTMLファイルを編集し、2つのブロックレベル要素を作成しましょう
+以下のようにindex.htmlを編集しましょう。
+
+index.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Hair OLIVE</title>
+  </head>
+  <body>
+    <header>
+      <div class="heading">
+      </div>
+      <div class="navbar">
+      </div>
+    </header>
+
+    <div class="contents">
+      <div class="first-view">
+        <!-- 『トップ画像』を表示する -->
+      </div>
+      <div class="upper-content">
+        <!-- 『新着情報』を表示する -->
+      </div>
+      <div class="middle-content">
+        <!-- 『スタイリスト紹介』を表示する -->
+      </div>
+      <div class="bottom-content">
+        <!-- 『フォーム』を表示する -->
+      </div>
+    </div>
+
+    <footer>
+    </footer>
+  </body>
+</html>
+これでheader要素の中に要素を作成できました。続いて、CSSファイルを編集しましょう。
+
+CSSファイルを編集し、要素を横並びにしましょう。
+FlexBoxを用いて、作成した要素を横並びにします。
+以下のようにstyle.cssに追記しましょう。
+
+style.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+/* リセットCSS */
+body {
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+ul,li {
+  padding: 0;
+  margin: 0;
+}
+
+/* ヘッダー */
+header {
+  height: 50px;
+  background-color: #f0f0f0;
+  padding: 10px 0;
+  display: flex;
+}
+
+/* 省略 */
+display:flex;を用いることで、要素を横並びにすることができました。
+
+タイトルの表示をしよう
+タイトルのために作成した要素に、文字を記述します。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//b45f69ed9bcfee152d59d83b26ecadbf.png
+
+HTMLを編集し、タイトルを表示させましょう
+以下のようにindex.htmlを編集しましょう。
+
+index.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Hair OLIVE</title>
+  </head>
+  <body>
+    <header>
+      <div class="heading">
+        <h1 class="title">Hair OLIVE</h1>
+      </div>
+      <div class="navbar">
+      </div>
+    </header>
+
+    <!-- 省略 -->
+
+  </body>
+</html>
+CSSを用いて、タイトルの情報を編集しましょう
+先ほど記述した要素をCSSで装飾します。
+以下のようにstyle.cssを編集しましょう。
+
+style.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+/* リセットCSS */
+body {
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+ul,li {
+  padding: 0;
+  margin: 0;
+}
+
+/* ヘッダー */
+header {
+  height: 50px;
+  background-color: #f0f0f0;
+  padding: 10px 0;
+  display: flex;
+}
+
+.heading {
+  width: 50%;
+  margin-left: 30px;
+}
+
+/* 省略 */
+ブラウザで確認しましょう
+リロードして、以下のような見た目になっていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//3c9ec267b2a68718e17a804b31b41d88.png
+
+ナビゲーションバーの実装をしよう
+ヘッダー右側のナビゲーションバーを実装しましょう。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//950dfb7f3b8f181d48e4a770732f80ab.png
+
+HTMLを編集し、ナビゲーションバーを表示させましょう
+リスト構造を用いて、ナビゲーションバーのHTML要素を作成しましょう。
+以下のようにindex.htmlを編集しましょう。
+
+index.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Hair OLIVE</title>
+  </head>
+  <body>
+    <header>
+      <div class="heading">
+        <h1 class="title">Hair OLIVE</h1>
+      </div>
+      <div class="navbar">
+        <ul class="nav-lists">
+          <li>サロンガイド</li>
+          <li>メニュー</li>
+          <li>スタッフ一覧</li>
+          <li>ギャラリー</li>
+          <li>アクセス</li>
+          <li>ブログ</li>
+        </ul>
+      </div>
+    </header>
+
+   <!-- 省略 -->
+
+  </body>
+</html>
+CSSを用いて、ナビゲーションバーを編集しましょう
+FlexBoxを用いて、リストを横並び、等間隔で配置しましょう。
+以下のようにstyle.cssを編集しましょう。
+
+style.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+/* リセットCSS */
+body {
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+ul,li {
+  padding: 0;
+  margin: 0;
+}
+
+/* ヘッダー */
+header {
+  height: 50px;
+  background-color: #f0f0f0;
+  padding: 10px 0;
+  display: flex;
+}
+
+.heading {
+  width: 50%;
+  margin-left: 30px;
+}
+
+.navbar {
+  width: 50%;
+  padding: 20px;
+}
+
+.nav-lists {
+  display: flex;
+  justify-content: space-around;
+}
+
+li {
+  list-style: none;
+}
+
+/* 省略 */
+ブラウザで確認しましょう
+リロードして、以下のような見た目になっていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//b25a606511141e9b48a51b6a6aea474b.png
+
+これでヘッダーの実装は完了しました。
+
+コンテンツの実装
+次に、計4箇所のコンテンツの部分を実装します。
+
+トップ画像表示の実装
+リスト構造を用いた新着情報の実装
+スタイリスト画像表示の実装
+フォームの実装
+これらを順番に実装します。
+
+トップ画像を表示させよう
+トップ画像を指定し、表示させます。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//5c60d97bb56b62ec030a4cb7dcee285d.png
+
+これを作成するために、
+
+表示させる画像の準備をする
+HTMLファイルに画像を表示させるための記述をする
+表示される画像の大きさを調節する
+の順に実装を進めます。
+
+表示させる画像を用意しましょう
+素材画像を、以下リンクからダウンロードしましょう。
+ダウンロード
+
+ 画像を配置するフォルダを用意しましょう
+先ほどダウンロードした画像を配置しておくフォルダを用意します。以下のようなフォルダ構成になるように、Hair_OLIVEフォルダにimagesフォルダを作成しましょう。
+
+ HTML_CSS
+ 3-9
+ index3-9.html
+ style3-9.css
+ Hair_OLIVE
+ index.html
+ style.css
+ images
+フォルダ内に画像を配置しましょう
+imagesフォルダに、先ほどダウンロードした画像を配置しましょう。
+
+ HTML_CSS
+ 3-9
+ index3-9.html
+ style3-9.css
+ Hair_OLIVE
+ index.html
+ style.css
+ images
+ hero.jpg
+HTMLを編集し、トップ画像を表示しましょう
+以下のようにindex.htmlを編集しましょう。
+
+index.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Hair OLIVE</title>
+  </head>
+  <body>
+    <header>
+      <div class="heading">
+        <h1 class="title">Hair OLIVE</h1>
+      </div>
+      <div class="navbar">
+        <ul class="nav-lists">
+          <li>サロンガイド</li>
+          <li>メニュー</li>
+          <li>スタッフ一覧</li>
+          <li>ギャラリー</li>
+          <li>アクセス</li>
+          <li>ブログ</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="contents">
+      <div class="first-view">
+        <img src="images/hero.jpg" alt="トップ画面" class="top-image">
+      </div>
+      <div class="upper-content">
+        <!-- 『新着情報』を表示する -->
+      </div>
+      <div class="middle-content">
+        <!-- 『スタイリスト紹介』を表示する -->
+      </div>
+      <div class="bottom-content">
+        <!-- 『フォーム』を表示する -->
+      </div>
+    </div>
+
+    <footer>
+    </footer>
+  </body>
+</html>
+ブラウザで確認しましょう
+リロードして、以下のような見た目になっていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//5c60d97bb56b62ec030a4cb7dcee285d.png
+
+画像を表示することはできました。しかし、このままでは画像が元のサイズのまま表示されており、大きすぎます。したがって、CSSでサイズを調整しましょう。この時に%（パーセント）の概念を用います。
+
+ %パーセント
+%（パーセント）とは、親要素のサイズが100%としたときに、子要素のサイズを親要素に対して何%で設定するかを決める方法です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//40a5c36068eda32b36f7dba07fef408b.png
+
+CSSを編集しましょう
+以下のようにstyle.cssを編集しましょう。
+
+style.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+/* 省略 */
+
+/* first-viewクラスからbottom-contentクラスまでの要素の親要素 */
+.contents {
+  background-color: white;
+}
+
+.first-view {
+  height: 60vh;
+}
+
+.top-image {
+  height: 100%;
+  width: 100%;
+}
+
+/* 新着情報 */
+.upper-content {
+  height: 450px ;
+  margin: 0 160px;
+}
+
+/* スタイリスト紹介 */
+.middle-content {
+  height: 450px ;
+  margin: 0 160px;
+}
+
+/* フォーム */
+.bottom-content {
+  height: 800px ;
+  margin: 0 160px;
+}
+
+/* フッター */
+footer {
+  height: 50px;
+  background-color: #f0f0f0;
+}
+ブラウザで確認しましょう
+リロードして、以下のような見た目になっていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//50e0edc4623162123f75bde38c2a5612.png
+
+これで、トップ画像の表示は完了です。
+
+リスト構造の実装をしよう
+リスト構造を用いて、「新着情報」を実装しましょう。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//51e54bebda7a8af39fda188a9357e639.png
+
+これを作成するために、
+
+リストの情報をHTMLファイルに記述する
+表示させたHTMLを横並びにする
+主にpaddingとmarginを用いて、要素間の幅を調節する
+の順に実装を進めます。
+また、「新着情報」の文字を中央へ寄せるために、text-alignプロパティを使用します。
+
+ text-alignテキスト アライン
+text-alignプロパティとは、水平方向における要素の配置を指定するためのプロパティです。
+値にはleft（左寄せ）・right（右寄せ）・center（中央寄せ）などを設定できます。
+
+HTMLを編集し、リスト構造を表示しましょう
+以下のようにindex.htmlを編集しましょう。
+
+index.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Hair OLIVE</title>
+  </head>
+  <body>
+    <header>
+      <div class="heading">
+        <h1 class="title">Hair OLIVE</h1>
+      </div>
+      <div class="navbar">
+        <ul class="nav-lists">
+          <li>サロンガイド</li>
+          <li>メニュー</li>
+          <li>スタッフ一覧</li>
+          <li>ギャラリー</li>
+          <li>アクセス</li>
+          <li>ブログ</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="contents">
+      <div class="first-view">
+        <img src="images/hero.jpg" alt="トップ画面" class="top-image">
+      </div>
+      <div class="upper-content">
+        <h2 class="heading-name">新着情報</h2>
+        <ul class="messages">
+          <li class="message">
+            <div class="message-date">2019/10/06</div>
+            <div>【新規のお客さま限定】<b>10％OFF</b>キャンペーン</div>
+          </li>
+          <li class="message">
+            <div class="message-date">2019/10/03</div>
+            <div>うれしい<b>ポイントアップキャンペーン</b></div>
+          </li>
+          <li class="message">
+            <div class="message-date">2019/09/27</div>
+            <div>2020年成人式 ご予約承ります</div>
+          </li>
+          <li class="message">
+            <div class="message-date">2018/10/03</div>
+            <div>うれしい<b>ポイントアップキャンペーン</b></div>
+          </li>
+          <li class="message">
+            <div class="message-date">2018/09/27</div>
+            <div>2019年成人式 ご予約承ります</div>
+          </li>
+        </ul>
+      </div>
+      <div class="middle-content">
+        <!-- 『スタイリスト紹介』を表示する -->
+      </div>
+      <div class="bottom-content">
+        <!-- 『フォーム』を表示する -->
+      </div>
+    </div>
+
+    <footer>
+    </footer>
+  </body>
+</html>
+CSSを編集し、表示させた要素の大きさや位置を調節しましょう
+以下のようにstyle.cssを編集しましょう。
+
+style.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+/* 省略 */
+
+/* 新着情報 */
+.upper-content {
+  height: 450px ;
+  margin: 0 160px;
+}
+
+.heading-name {
+  text-align: center;
+  border-bottom: 1px solid red;
+  width: 200px;
+  margin: 40px auto;
+}
+
+.messages {
+  width: 50vw;
+  margin: 0 auto;
+}
+
+.message {
+  display: flex;
+  font-size: 18px;
+  margin: 0 0 16px 70px;
+}
+
+.message-date {
+  padding-right: 40px;
+}
+
+/* スタイリスト紹介 */
+.middle-content {
+  height: 450px ;
+  margin: 0 160px;
+}
+
+/* フォーム */
+.bottom-content {
+  height: 800px ;
+  margin: 0 160px;
+}
+
+/* フッター */
+footer {
+  height: 50px;
+  background-color: #f0f0f0;
+}
+ブラウザで確認しましょう
+リロードして、以下のような見た目になっていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//06c498242b8d3a4b8bf020f10760639f.png
+
+スタイリストの画像の表示をしよう
+https://tech-master.s3.amazonaws.com/uploads/curriculums//887974a752cd8be1de1f4eee7d3e5ede.png
+
+これを作成するために、
+
+表示させる3つの画像を準備する
+HTMLファイルに画像を表示するための記述をする
+CSSファイルを編集して、表示される画像の配置と大きさを調節する
+の順に実装を進めます。
+
+表示させる画像を用意しましょう
+以下のリンクから、画像をダウンロードしましょう。
+
+スタイリスト1のダウンロードはこちら
+
+スタイリスト2のダウンロードはこちら
+
+スタイリスト3のダウンロードはこちら
+
+フォルダ内に画像を配置しましょう
+Hair_OLIVEフォルダのimagesフォルダに、先ほどダウンロードした画像を配置しましょう。
+
+ HTML_CSS
+ 3-9
+ index3-9.html
+ style3-9.css
+ Hair_OLIVE
+ index.html
+ style.css
+ images
+ hero.jpg
+ staff1.jpg
+ staff2.jpg
+ staff3.jpg
+上記のような配置になっていれば成功です。
+
+HTMLファイルを編集し、画像を表示しましょう
+以下のようにindex.htmlを編集しましょう。
+
+index.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Hair OLIVE</title>
+  </head>
+  <body>
+    <header>
+      <div class="heading">
+        <h1 class="title">Hair OLIVE</h1>
+      </div>
+      <div class="navbar">
+        <ul class="nav-lists">
+          <li>サロンガイド</li>
+          <li>メニュー</li>
+          <li>スタッフ一覧</li>
+          <li>ギャラリー</li>
+          <li>アクセス</li>
+          <li>ブログ</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="contents">
+      <div class="first-view">
+        <img src="images/hero.jpg" alt="トップ画面" class="top-image">
+      </div>
+      <div class="upper-content">
+        <h2 class="heading-name">新着情報</h2>
+        <ul class="messages">
+          <li class="message">
+            <div class="message-date">2019/10/06</div>
+            <div>【新規のお客さま限定】<b>10％OFF</b>キャンペーン</div>
+          </li>
+          <li class="message">
+            <div class="message-date">2019/10/03</div>
+            <div>うれしい<b>ポイントアップキャンペーン</b></div>
+          </li>
+          <li class="message">
+            <div class="message-date">2019/09/27</div>
+            <div>2020年成人式 ご予約承ります</div>
+          </li>
+          <li class="message">
+            <div class="message-date">2018/10/03</div>
+            <div>うれしい<b>ポイントアップキャンペーン</b></div>
+          </li>
+          <li class="message">
+            <div class="message-date">2018/09/27</div>
+            <div>2019年成人式 ご予約承ります</div>
+          </li>
+        </ul>
+      </div>
+      <div class="middle-content">
+        <h2 class="heading-name">スタイリスト紹介</h2>
+        <ul class="stylist-list">
+          <li>
+            <img src="images/staff1.jpg" alt="staff1" class="stylist-image">
+            <h4 class="stylist-name">鈴木</h4>
+          </li>
+          <li>
+            <img src="images/staff2.jpg" alt="staff2" class="stylist-image">
+            <h4 class="stylist-name">佐藤</h4>
+          </li>
+          <li>
+            <img src="images/staff3.jpg" alt="staff3" class="stylist-image">
+            <h4 class="stylist-name">山田</h4>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bottom-content">
+        <!-- 『フォーム』を表示する -->
+      </div>
+
+    </div>
+
+    <footer>
+    </footer>
+  </body>
+</html>
+CSSファイルを編集し、表示させた画像の位置と大きさを調節しましょう
+以下のようにstyle.cssを編集しましょう。
+
+style.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+/* 省略 */
+
+/* スタイリスト紹介 */
+.middle-content {
+  height: 450px ;
+  margin: 0 160px;
+}
+
+.stylist-list {
+  display: flex;
+  justify-content: space-around;
+  margin: 60px 0;
+}
+
+.stylist-image {
+  height: 300px;
+}
+
+.stylist-name {
+  font-size: 16px;
+  text-align: center;
+}
+
+/* フォーム */
+.bottom-content {
+  height: 800px ;
+  margin: 0 160px;
+}
+
+/* フッター */
+footer {
+  height: 50px;
+  background-color: #f0f0f0;
+}
+ブラウザで確認しましょう
+リロードして、以下のような見た目になっていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//887974a752cd8be1de1f4eee7d3e5ede.png
+
+フォームを実装しよう
+今回実装するフォームは、本レッスンのカリキュラム「フォーム実装について学ぼう」で作成したものと、ほぼ同様です。したがって、詳しい説明は本章では省略します。実装でわからない箇所がある人は、フォーム実装について学ぼうを復習しましょう。
+
+以下のフォームの完成を目指します。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//d7fcea037ac37da1470b92b8728c7602.png
+
+HTMLを編集しましょう
+以下のようにindex.htmlを編集しましょう。
+
+index.html
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Hair OLIVE</title>
+  </head>
+  <body>
+    <header>
+      <div class="heading">
+        <h1 class="title">Hair OLIVE</h1>
+      </div>
+      <div class="navbar">
+        <ul class="nav-lists">
+          <li>サロンガイド</li>
+          <li>メニュー</li>
+          <li>スタッフ一覧</li>
+          <li>ギャラリー</li>
+          <li>アクセス</li>
+          <li>ブログ</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="contents">
+      <div class="first-view">
+        <img src="images/hero.jpg" alt="トップ画面" class="top-image">
+      </div>
+      <div class="upper-content">
+        <h2 class="heading-name">新着情報</h2>
+        <ul class="messages">
+          <li class="message">
+            <div class="message-date">2019/10/06</div>
+            <div>【新規のお客さま限定】<b>10％OFF</b>キャンペーン</div>
+          </li>
+          <li class="message">
+            <div class="message-date">2019/10/03</div>
+            <div>うれしい<b>ポイントアップキャンペーン</b></div>
+          </li>
+          <li class="message">
+            <div class="message-date">2019/09/27</div>
+            <div>2020年成人式 ご予約承ります</div>
+          </li>
+          <li class="message">
+            <div class="message-date">2018/10/03</div>
+            <div>うれしい<b>ポイントアップキャンペーン</b></div>
+          </li>
+          <li class="message">
+            <div class="message-date">2018/09/27</div>
+            <div>2019年成人式 ご予約承ります</div>
+          </li>
+        </ul>
+      </div>
+      <div class="middle-content">
+        <h2 class="heading-name">スタイリスト紹介</h2>
+        <ul class="stylist-list">
+          <li>
+            <img src="images/staff1.jpg" alt="staff1" class="stylist-image">
+            <h4 class="stylist-name">鈴木</h4>
+          </li>
+          <li>
+            <img src="images/staff2.jpg" alt="staff2" class="stylist-image">
+            <h4 class="stylist-name">佐藤</h4>
+          </li>
+          <li>
+            <img src="images/staff3.jpg" alt="staff3" class="stylist-image">
+            <h4 class="stylist-name">山田</h4>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bottom-content">
+        <form class="contact-form">
+          <h2 class="heading-name">メールで予約</h2>
+          <input type="text" placeholder="name" class="small-field">
+          <input type="text" placeholder="e-mail" class="small-field">
+          <textarea placeholder="message" class="large-field"></textarea>
+          <input type="submit" value="SEND" class="send">
+        </form>
+      </div>
+
+    </div>
+
+    <footer>
+    </footer>
+  </body>
+</html>
+CSSを編集しましょう
+以下のようにstyle.cssを編集しましょう。
+
+style.css
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+/* 省略 */
+
+/* フォーム */
+.bottom-content {
+  height: 800px ;
+  margin: 0 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.small-field, .large-field {
+  width: 800px;
+  font-size: 16px;
+  padding: 15px;
+  border: 1px solid #b5aaaa;
+  display: block;
+}
+
+.small-field {
+  margin: 0 auto 15px;
+}
+
+.large-field {
+  height: 200px;
+  margin: 0 auto 30px;
+}
+
+.send {
+  width: 200px;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid white;
+  background-color: lightblue;
+  color:white;
+  display: block;
+}
+
+/* フッター */
+footer {
+  height: 50px;
+  background-color: #f0f0f0;
+}
+ブラウザで確認しましょう
+リロードして、以下のような見た目になっていれば成功です。
+https://tech-master.s3.amazonaws.com/uploads/curriculums//d7fcea037ac37da1470b92b8728c7602.png
+
+フッターの実装
+最後に著作権情報をフッターに記述しましょう。
+
+HTMLを編集してフッター情報を追加しましょう
+以下のようにindex.htmlを編集しましょう。
+
+index.html
+1
+2
+3
+4
+5
+6
+7
+　<!-- 省略 -->
+
+    <footer>
+      <p>Copyright(C) Hair OLIVE ALL RIGHTS RESERVED.</p>
+    </footer>
+  </body>
+</html>
+続いて、以下のようにstyle.cssを記述しましょう
+
+style.css
+1
+2
+3
+4
+5
+6
+7
+8
+9
+/* 省略 */
+
+/* フッター */
+footer {
+  height: 50px;
+  background-color: #f0f0f0;
+  text-align: center;
+  color: gray;
+}
+ブラウザで確認しましょう
+リロードして、以下のような見た目になっていれば成功です。
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//f10b903de8070b3d4b42ab76833b64ea.png
+
+Webページの完成
+以上でHair OLIVEの実装は完了です。お疲れ様でした！
+
+https://tech-master.s3.amazonaws.com/uploads/curriculums//ee17c505006b303e47767f830f1bd782.png
+
